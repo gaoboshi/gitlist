@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>商品浏览记录</title>
+	<script type="text/javascript">
+		window.onload = function () {
+			var oImg = document.getElementById('apple-img');
+
+			oImg.onclick = function () {
+				var
+					sSrc   = this.src,
+					sTitle = this.getAttribute('data-title'),
+					sPrice = this.getAttribute('data-price');
+
+				var oGoods = {
+					src: sSrc,
+					title: sTitle,
+					price: sPrice,
+				};
+				var sGoods = JSON.stringify(oGoods);
+				// 创建cookie
+				var oDate = new Date();
+				oDate.setDate(oDate.getDate() + 7);
+				document.cookie = 'goods='+encodeURIComponent(sGoods)+';expires=' + oDate;
+			}
+		}
+	</script>
+</head>
+<body>
+	<img id="apple-img" src="images/5.jpg" style="width: 200px;" data-title="苹果6" data-price="49">
+	<div>价格：49元</div>
+	<div>名称：苹果6</div>
+</body>
+</html>

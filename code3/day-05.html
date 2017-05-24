@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第五天</title>
+	<script type="text/javascript">
+		// 变量作用域
+		// 全局变量
+		/*var a = 4;
+
+		say();
+		function say() {
+			// 局部变量
+			var
+				a = 5,
+				b = 6,
+				c = 7;
+			alert(a);
+		}
+		say();
+		alert(a);*/
+
+		// with语句
+		/*document.write(1);
+		document.write(2);*/
+		/*with(document){
+			write(3);
+			write(4);
+		}*/
+
+		// 回调函数
+		/*var a = false;
+
+		function say() {
+			console.log('i am saying!');
+		}
+
+		function doIt(btn, b) {
+			if(btn === true) {
+				b();
+			}
+		}
+
+		doIt(a, say);*/
+
+		// 递归函数
+		/*
+			num = 1;
+			{
+				num++;
+				if(num <= 3) {
+					{
+						num++;
+						if(num <= 3) {
+							{
+								num++;
+								if(num <= 3) {
+									recursiveFunc();
+								}
+								// 4
+								console.log(num);
+							}
+						}
+						// 4
+						console.log(num);
+					}
+				}
+				// 4
+				console.log(num);
+			}
+		*/
+		/*var num = 1;
+		function recursiveFunc() {
+			num++;
+			if(num <= 3) {
+				recursiveFunc();
+			}
+			console.log(num);
+		}
+		recursiveFunc();*/
+
+		// 匿名函数
+		/*(function () {
+			alert(2);
+		})();*/
+
+		// 通过内置的构造函数Function创建函数对象
+		var say = new Function('x', 'y', 'return x + y;');
+		console.log(say(4, 5));
+
+		// 自定义一个构造函数
+		function Person(sName) {
+			// 指定名称
+			this.name = sName;
+			// 指定年龄
+			this.age = 1;
+		}
+
+		var oZhangSan = new Person('尼古拉斯.张三');
+
+		console.log(oZhangSan);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

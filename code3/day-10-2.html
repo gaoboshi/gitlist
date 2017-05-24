@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>FORM表单</title>
+	<script type="text/javascript">
+		window.onload = function () {
+			// 获取表单对象
+			// console.log(document.forms['register']);
+			// console.log(document.register);
+
+			// 获取表单元素对象
+			var oRegister = document.register;
+			//console.log(oRegister.elements.account);
+			// console.log(oRegister.password);
+
+			//document.register.elements.account.value = '。。。';
+			// console.log(document.register.elements.account.form);
+
+			// 输入框提示信息
+			/*var oAccount = oRegister.account;
+
+			oAccount.onfocus = function () {
+				this.value = '';
+			}
+			oAccount.onblur = function () {
+				this.value = '请输入帐号';
+			}*/
+
+			// 设置radio的checkbox
+			/*var aSex = oRegister.elements.sex;
+			for(var i = 0; i < aSex.length; i++) {
+				if(aSex[i].value === 'girl') {
+					aSex[i].checked = true;
+				}
+			}*/
+
+			// 设置selected
+			var oSelect = oRegister.area;
+			/*var aOption = oSelect.children;
+
+			for(var i = 0; i < aOption.length; i++) {
+				if(aOption[i].value === '2') {
+					aOption[i].selected = true;
+				}
+			}*/
+
+			// 下拉列表的索引号
+			// oSelect.selectedIndex = 3;
+
+			// 事件
+			/*oRegister.onsubmit = function () {
+				alert(1);
+				return false;
+			}*/
+			// 输入框使用change事件，当失去焦点时如果内容发生了变化则执行
+			/*oRegister.account.onchange = function () {
+				console.log(this.value);
+			}*/
+			/*oSelect.onchange = function () {
+				console.log(this.value);
+			}*/
+
+			// 表单方法
+			$('btn').onclick = function () {
+				oRegister.submit();
+			}
+
+
+			function $(id) {
+				return document.getElementById(id);
+			}
+
+		};
+	</script>
+	<style type="text/css">
+		hr {
+			border-color: red;
+		}
+	</style>
+</head>
+<body>
+	<form action="" name="register">
+		<div><label>帐号：</label><input type="text" name="account" value="请输入帐号"></div>
+		<div><label>密码：</label><input type="password" name="password"></div>
+		<input type="radio" value="boy" name="sex">男<input type="radio" value="girl" name="sex">女
+		<hr>
+		<input type="checkbox">
+		<hr>
+		<input type="reset">
+		<hr>
+		<input type="file">
+		<hr>
+		<input type="image">
+		<hr>
+		<input type="button">
+		<hr>
+		<input type="hidden" value="111111">
+		<select name="area">
+			<option value="1">郑州市</option>
+			<option value="2">濮阳市</option>
+			<option value="3" selected>洛阳市</option>
+			<option value="4">安阳市</option>
+		</select>
+		<hr>
+		<textarea name="" id="" cols="30" rows="10"></textarea>
+		<hr>
+		<input type="submit" value="提交">
+	</form>
+
+	<button id="btn">提交FORM表单</button>
+</body>
+</html>

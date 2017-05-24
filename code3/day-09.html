@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>window对象</title>
+	<script type="text/javascript">
+		// window对象
+		// self属性
+		// console.log(window.self === window);
+		// window.status = '欢迎来到郑州千锋';
+
+		// 方法
+		window.onload = function () {
+			var oBtn = document.getElementById('btn');
+
+			oBtn.onclick = function () {
+				// 打开浏览器
+				// _blank、_self、_parent
+				// window.open('open.html');
+
+				// 关闭浏览器
+				// window.close();
+
+				// alert();
+				// window.alert('弹出窗口');
+
+				// 信息确认提示框
+				/*var iRet = window.confirm('你是不是点击了按钮？');
+				console.log(iRet);*/
+
+				// 输入框
+				/*var sContent = window.prompt('请输入您的年龄');
+				console.log(sContent);*/
+			}
+		}
+ 	</script>
+</head>
+<body>
+	<button id="btn">打开新的窗口</button>
+	<iframe src="day-09-son.html"></iframe>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画</title>
+	<script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.8.3/jquery.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			/*$('#box').show(5000, 'linear', function () {
+				console.log('我已经运动完毕');
+			});*/
+			/*$('#box').hide(5000, 'linear', function () {
+				console.log('我已经运动完毕');
+			});*/
+			/*$('#box').toggle(5000, 'linear', function () {
+				console.log('我已经运动完毕');
+			});*/
+
+			/*$('#box').slideDown(5000, function () {
+				console.log('我已经运动完毕');
+			});*/
+			/*$('#box').slideUp(5000, function () {
+				console.log('我已经运动完毕');
+			});*/
+
+			/*$('#box').slideToggle(5000, function () {
+				console.log('我已经运动完毕');
+			});*/
+
+			/*$('#box').fadeIn(5000, function () {
+				console.log('我已经运动完毕');
+			});*/
+
+			/*$('#box').fadeOut(5000, function () {
+				console.log('我已经运动完毕');
+			});*/
+			/*$('#box').fadeToggle(5000, function () {
+				console.log('我已经运动完毕');
+			});*/
+			/*$('#box').fadeTo(5000, 0, function () {
+				console.log('我已经运动完毕');
+			});*/
+
+			/*$('#box').animate({
+				width: 200,
+				height: 400
+			}, 4000, function () {
+				$('#box').animate({
+					left: 400,
+					top: 200,
+				}, 3000, function () {
+					$('#box').animate({
+						opacity: .5
+					}, 2000);
+				});
+			});*/
+
+			/*$('#box').animate({width: 200}, 2000).animate({height: 400}, 2000).animate({left: 200}, 2000).animate({top: 200}, 2000);
+
+			$('#btn').click(function () {
+				$('#box').stop(true, true);
+			});*/
+			// $('#box').delay(3000).animate({width: 200}, 2000);
+
+			// 关闭页面上所有的动画
+			/*$.fx.off = true;
+			$('#box').animate({width: 400}, 2000);*/
+
+			/*$.fx.interval = 500;
+			$('#box').animate({width: 400}, 2000);*/
+
+			/*$('#list li').each(function (k, v) {
+				console.log(k, v);
+			});*/
+			// console.log($('#list li').get(2));
+			// console.log($('#list li').eq(2));
+
+			// console.log($('#list'));
+			// console.log($('#list').get(0).innerHTML);
+			// console.log($('#list')[0].innerHTML);
+
+			/*var oList = document.getElementById('list');
+			console.log($(oList).html());*/
+
+			// $('#list li').click(function () {
+				// console.log($(this).index());
+				// console.log($('#list li').index($(this)));
+			// });
+
+			//console.log($('#list').data('title'));
+			//$('#list').data('id', 2);
+			// console.log($('#list').data('id'));
+
+			/*$('#list').data('age', 28);
+			$('#list').removeData('age');
+			console.log($('#list').data('age'));*/
+		});
+	</script>
+</head>
+<body>
+	<button id="btn">停止动画</button>
+	<div id="box" style="position:absolute; left: 50px; top: 50px; width: 100px; height: 100px; margin: 20px; padding: 20px; background: red;"></div>
+
+	<ul id="list" data-id="1" data-title="新闻列表">
+		<p>pppp</p>
+		<p>pppp</p>
+		<p>pppp</p>
+		<p>pppp</p>
+		<li>这是第1个LI</li>
+		<li>这是第2个LI</li>
+		<li>这是第3个LI</li>
+		<li>这是第4个LI</li>
+		<li>这是第5个LI</li>
+		<li>这是第6个LI</li>
+	</ul>
+</body>
+</html>

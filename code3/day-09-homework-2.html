@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>回到顶部</title>
+	<script type="text/javascript">
+		window.onload = function () {
+			var oBox = document.getElementById('box');
+			oBox.onclick = function () {
+				document.documentElement.scrollTop = 0;
+				document.body.scrollTop = 0;
+			}
+		}
+	</script>
+</head>
+<body style="height: 2000px;">111
+	<div id="box" style="width: 100px; height: 100px; background: #ccc; position: fixed; right: 20px; bottom: 20px;">回到顶部</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>结合事件和循环打印九九乘法表</title>
+	<script type="text/javascript">
+		window.onload = function () {
+			var
+				oBtn1 = document.getElementById('btn1'),
+				oBtn2 = document.getElementById('btn2'),
+				oBtn3 = document.getElementById('btn3');
+
+			oBtn1.onclick = function () {
+				product99(9);
+			};
+
+			oBtn2.onclick = function () {
+				product99(5);
+			}
+
+			oBtn3.onclick = function () {
+				product99(3);
+			}
+
+
+			// 输出九行的九九乘法表
+			function product99 (iRow) {
+				for(var i = 1; i<= iRow; i++) {
+					for(var j = 1; j<=i; j++) {
+						document.write(i + '*' + j + '=' + i * j + '&ensp;');
+					}
+					document.write('<br/>');
+				}
+			}
+
+			// 输出五行的九九乘法表
+			/*function product995 () {
+				for(var i = 1; i<= 5; i++) {
+					for(var j = 1; j<=i; j++) {
+						document.write(i + '*' + j + '=' + i * j + '&ensp;');
+					}
+					document.write('<br/>');
+				}
+			}*/
+		};
+	</script>
+</head>
+<body>
+	<button id="btn1">打印9行的九九乘法表</button>
+	<button id="btn2">打印5行的九九乘法表</button>
+	<button id="btn3">打印3行的九九乘法表</button>
+</body>
+</html>

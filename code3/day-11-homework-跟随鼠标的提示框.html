@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>跟随鼠标的提示框</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.panel {
+			position: absolute;
+			padding: 4px 6px;
+			display: none;
+			border: 1px solid #ccc;
+			background: #eee;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function () {
+			var oList = document.getElementById('list'),
+			aA = oList.getElementsByTagName('a');
+
+
+			for(var i = 0; i < aA.length; i++) {
+				aA[i].onmouseover = function () {
+					this.nextElementSibling.style.display = 'block';
+				}
+				aA[i].onmousemove = function (ev) {
+					var
+						ev = ev || window.event,
+						iX = ev.clientX,
+						iY = ev.clientY;
+
+					this.nextElementSibling.style.left = iX + 5 + 'px';
+					this.nextElementSibling.style.top  = iY + 5 + 'px';
+				}
+				aA[i].onmouseout = function () {
+					this.nextElementSibling.style.display = 'none';
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul id="list">
+		<li>
+			<a href="javascript:;">这是第1条新闻</a>
+			<div class="panel">
+				新闻详细信息！！！！
+			</div>
+		</li>
+		<li>
+			<a href="javascript:;">这是第2条新闻</a>
+			<div class="panel">
+				新闻详细信息！！！！
+			</div>
+		</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第六天课后习题</title>
+	<script type="text/javascript">
+		// 第一题
+		/*var iTimes = (50 - 15) / 5;
+		console.log(iTimes);*/
+		// 第二题
+		var
+			aArray = new Array(30),
+			oAverage = [];
+		// 循环赋值
+		for(var i = 0; i < aArray.length; i++) {
+			aArray[i] = 2 * (i + 1);
+		}
+		// 每五个数求平均值
+		// j = 0 0、1、2、3、4 // 0
+		// j = 1 5、6、7、8、9 / 5
+		// j = 2 10、11、12、13、14 // 10
+		/*for(var j = 0; j < aArray.length / 5; j++) {
+			var iSum = 0;
+			//for(var i = 0; i < 5; i++) {
+			//	iSum += aArray[j * 5 + i];
+			//}
+			iSum = aArray[j * 5 + 0] + aArray[j * 5 + 1] + aArray[j * 5 + 2] + aArray[j * 5 + 3] + aArray[j * 5 + 4];
+
+			var iAverage = iSum / 5;
+
+			oAverage.push(iAverage);
+		}
+		console.log(oAverage);*/
+
+		// 第三题
+		/*
+			[
+				[ 1,  2,  3,  4,  5],
+				[ 6,  7,  8,  9, 10],
+				[11, 12, 13, 14, 15],
+				[16, 17, 18, 19, 20],
+				[21, 22, 23, 24, 25],
+			]
+		*/
+
+		var aRet = [];
+		// 填充内容
+		for(var i = 0; i < 5; i++) {
+			aRet[i] = [];
+			for(var j = 0; j< 5; j++) {
+				aRet[i][j] = i * 5 + j + 1;
+			}
+		}
+
+		// 输出正三角形
+		for(var i = 0; i < aRet.length; i++) {
+			for(var j = 0; j <= i; j++) {
+				document.write(aRet[i][j]+'、');
+			}
+			document.write('<br>');
+		}
+		console.log(aRet);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

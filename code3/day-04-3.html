@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第四天函数下午</title>
+	<script type="text/javascript">
+		// 函数创建方式
+		// 函数声明式
+		/*function sum(x, y){
+			console.log(x + y);
+		}
+		sum(4, 7);*/
+
+		// 函数表达式
+		/*var sum = function (x, y) {
+			console.log(x + y);
+		};
+
+		sum(5, 8);*/
+		// 函数构造法
+		// var sum = new Function('x', 'y', 'console.log(x + y);');
+
+		// sum(1, 1);
+
+		// 注意点，用函数声明式的方式去创建函数必须要指定函数名称
+		/*function (x, y) {
+			console.log(x + y);
+		}*/
+
+		// 函数声明式和函数表达式的区别
+		/*function sum(x, y) {
+			console.log(x + y);
+		};
+		sum(4, 9);*/
+
+		/*(function (x, y) {
+			console.log(x + y);
+		})(10, 20);*/
+
+
+		// arguments
+		/*function sum() {
+			console.log(arguments);
+			console.log(arguments[0] + arguments[1]);
+		}
+		sum(10 ,30, 20 ,40 ,80 ,100);*/
+
+		// return 关键词
+		/*function sum(x, y) {
+			return x + y;
+		}
+		var iRet = sum(24, 16);
+
+		console.log(iRet * 2);*/
+
+
+		// JS解析顺序
+		// 第一步将第一块script代码读入到内存中
+		// 语法解析
+		// 将var 、function提前置顶（预解析）
+		// 从上往下逐行执行
+		/*var a;
+		console.log(a);
+		a = 10;*/
+		var a;
+		a();
+		a = function () {
+			alert('a');
+		}
+	</script>
+	<script type="text/javascript">
+		var b = 1;
+		console.log(b);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

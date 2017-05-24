@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+    <script>
+        // DOM属性
+        // console.log(document.title);
+        // console.log(document.all);
+        window.onload = function () {
+            // console.log(document.forms['login']);
+
+            // 方法
+            // var oBox = document.getElementById('box');
+            // var aDiv = document.getElementsByTagName('div');
+            // var aForm = document.getElementsByName('login');
+            // var aClass = document.getElementsByClassName('class1');
+
+            // 封装通过class名称获取DOM节点列表的函数
+            /*function byClassName(sClass) {
+                if(document.getElementsByClassName) {
+                    // 兼容IE9+
+                    var aClass = document.getElementsByClassName('class1');
+                } else {
+                    // 在IE6/7/8下面通过class名获取DOM节点列表
+                    var aAllTags = document.getElementsByTagName('*');
+                    var aClass = [];
+                    for(var i = 0; i < aAllTags.length; i++) {
+                        if(aAllTags[i].className === 'class1') {
+                            aClass.push(aAllTags[i]);
+                        }
+                    }
+                }
+                return aClass;
+            }
+
+            console.log(byClassName('class1'));*/
+
+            // 操作内容
+            // console.log($('content').innerHTML);
+            // $('content').innerHTML = '<strong>不好</strong>';
+
+            // console.log($('content').innerText);
+            // $('content').innerText = '<strong>不好</strong>';
+
+            // console.log($('content').outerHTML);
+            // $('content').outerHTML = '<strong>不好</strong>';
+
+            // console.log($('content').outerText);
+            // $('content').outerText = '<strong>不好</strong>';
+
+            // 操作属性
+            /*console.log($('attribute').className);
+            $('attribute').className = 'hehehe';*/
+
+            // console.log($('attribute').getAttribute('sex'));
+            // $('attribute').setAttribute('sex', '男');
+            // $('attribute').removeAttribute('sex');
+
+            // 操作样式
+            // console.log($('box').style.width);
+           /* var iWidth = parseInt($('box').style.width);
+            $('box').style.width = iWidth * 3 + 'px';*/
+
+           // $('box').style.backgroundColor = 'green';
+
+            // console.log(getComputedStyle($('box'), null).width);
+
+            // console.log($('box').currentStyle.width);
+
+            // 获取节点样式值
+            /*function getStyle(obj, sAttr) {
+                // IE浏览器
+                if(obj.currentStyle) {
+                    return obj.currentStyle[sAttr];
+                } else {
+                    return getComputedStyle(obj, null)[sAttr];
+                }
+            }
+
+            console.log(getStyle($('box'), 'width'));*/
+
+            // 创建节点
+            /*var oH2 = document.createElement('h2');
+            oH2.innerHTML = '标题';*/
+
+            // 添加节点
+            var oH4 = $('box').getElementsByTagName('h4')[0];
+            // 追加到元素后面
+            // $('box').appendChild(oH2);
+            // 插入某个节点之前
+            // $('box').insertBefore(oH2, oH4);
+            // 替换节点
+            // $('box').replaceChild(oH2, oH4);
+            // 删除节点
+            // $('box').removeChild(oH4);
+
+            // 创建属性
+            /*var oNewAttr = document.createAttribute('age');
+            oNewAttr.value = '23';
+
+            oH4.setAttributeNode(oNewAttr);*/
+
+            // 创建文本节点
+            /*var oText = document.createTextNode('这是一段很长很长的一句话！');
+            oH4.appendChild(oText);*/
+
+            // 操作表格
+            var oTable = $('table');
+
+            // 操作表格内容
+            console.log(oTable.tBodies[0].rows[0].cells[0].innerHTML);
+            oTable.tBodies[0].rows[0].cells[0].innerHTML = 'id';
+
+            // 插入行
+            var oNewTr = oTable.insertRow(3);
+            var oNewTd = oNewTr.insertCell(0);
+            oNewTd.innerHTML = '3';
+            var oNewTd = oNewTr.insertCell(1);
+            oNewTd.innerHTML = '小花';
+            var oNewTd = oNewTr.insertCell(2);
+            oNewTd.innerHTML = '18';
+            console.log(oNewTr);
+
+            function $(id) {
+                return document.getElementById(id);
+            }
+        }
+    </script>
+    <style>
+        #box {
+            background:pink;
+            width:100px;
+            height:100px;
+        }
+    </style>
+</head>
+<body>
+    <form name="login"></form>
+    <form name="register"></form>
+    <form name="message"></form>
+    <form name="login"></form>
+    <div id="box1">1</div>
+    <div id="box2">2</div>
+    <p name="login"></p>
+    <div class="class1"></div>
+    <div class="class2"></div>
+    <div class="class1"></div>
+    <div id="content"><strong>韩梅</strong>，你好。nice to meet you.</div>
+    <div id="attribute" class="hahaha" sex="女"></div>
+
+    <div id="box">
+        <h3></h3>
+        <h4></h4>
+    </div>
+    <table border="1" id="table">
+        <tr>
+            <td>ID</td>
+            <td>姓名</td>
+            <td>年龄</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>哈哈哈</td>
+            <td>24</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>呵呵呵</td>
+            <td>25</td>
+        </tr>
+    </table>
+</body>
+</html>

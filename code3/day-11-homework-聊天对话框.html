@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>聊天对话框</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		ul {
+			list-style: none;
+		}
+		#box {
+			margin: 30px auto;
+			width: 40%;
+		}
+		textarea{
+			width: 100%;
+		}
+		#list {
+			margin: 30px auto;
+			padding: 10px;
+			width: 40%;
+			border: 1px solid #ccc;
+			overflow: hidden;
+		}
+		#list li {
+			margin-top: 10px;
+		}
+		#list .left {
+			float: left;
+			clear: both;
+			background: #ccc;
+		}
+		#list .right {
+			float: right;
+			clear: both;
+			background: green;
+		}
+	</style>
+	<script type="text/javascript" src="common.js"></script>
+	<script type="text/javascript">
+		window.onload = function () {
+			var
+				oList    = $('list'),
+				oContent = $('content'),
+				oBtn 	 = $('btn');
+
+			oContent.onkeydown = function (ev) {
+				var ev = ev || window.event;
+				if(this.value !== '' && ev.ctrlKey === true && ev.keyCode === 13) {
+					var oLi = document.createElement('li');
+					oLi.className = 'right';
+					oLi.innerHTML = this.value;
+
+					oList.appendChild(oLi);
+
+					// 清空输入框内容
+					this.value = '';
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul id="list">
+		<li class="left">你好，在吗</li>
+		<li class="right">在</li>
+		<li class="left">给你2000块钱给我做一个淘宝网站。</li>
+		<li class="right">上一句说什么？</li>
+		<li class="left">给你2000块钱给我做一个淘宝网站。</li>
+		<li class="right">上上一句</li>
+		<li class="left">你好，在吗</li>
+		<li class="right">不在</li>
+		<li>
+			<script>
+			</script>
+		</li>
+		<li>
+			&lt;script type="text/javascript">document.write(1);
+			</script>
+		</li>
+	</ul>
+	<div id="box">
+		<textarea id="content" rows="10"></textarea><br>
+		<button id="btn">发送</button>
+	</div>
+</body>
+</html>

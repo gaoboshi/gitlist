@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网页换肤</title>
+	<script type="text/javascript">
+		window.onload = function () {
+			var
+				aButton = document.getElementsByTagName('button'),
+				oRed = $('red'),
+				oBlue = $('blue'),
+				oGreen = $('green');
+
+			oRed.onclick = function () {
+				changeSkin(this, 'red');
+			}
+			oBlue.onclick = function () {
+				changeSkin(this, 'blue');
+			}
+			oGreen.onclick = function () {
+				changeSkin(this, 'green');
+			};
+
+
+			function $(id) {
+				return document.getElementById(id);
+			}
+
+			// 改变皮肤的函数
+			function changeSkin(oButton, sColor) {
+				document.body.style.background = sColor;
+				for(var i = 0; i < aButton.length; i++) {
+					aButton[i].style.background = '';
+				}
+				oButton.style.background = 'pink';
+			}
+		}
+	</script>
+</head>
+<body>
+	<button id="red">红色</button>
+	<button id="blue">蓝色</button>
+	<button id="green">绿色</button>
+</body>
+</html>

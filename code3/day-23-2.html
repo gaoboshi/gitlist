@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="common.js"></script>
+	<script type="text/javascript">
+		window.onload = function () {
+			var
+				oLogin = document.login,
+				oAccount = oLogin.account,
+				oPassword = oLogin.password;
+
+			oLogin.onsubmit = function () {
+				var
+					sAccount  = oAccount.value,
+					sPassword = oPassword.value;
+
+				// 发送给后台验证
+				// 验证帐号
+				ajax({
+					type: 'post',
+					url:  'http://127.0.0.1/projects/zz-1701/checkAccount.php',
+					data: {account: sAccount},
+					fn: function (data) {
+						var oData = JSON.parse(data);
+
+						if(oData.status === 200) {
+							// 验证密码
+							ajax({
+								type: 'post',
+								url: 'checkPassword.php',
+								data: {password:sPassword},
+								fn: function(data) {
+									var oData = JSON.parse(data);
+									if(oData.status === 200) {
+										alert('全部通过');
+									} else {
+										alert(oData.info);
+									}
+								}
+							});
+						} else {
+							alert(oData.info);
+						}
+					}
+				});
+
+				// 使用promise改造后的ajax实现同样的效果
+				/*promiseAjax({
+					type: 'post',
+					url:  'http://127.0.0.1/projects/zz-1701/checkAccount.php',
+					data: {account: sAccount}
+				}).then(function (data) {
+					var oData = JSON.parse(data);
+
+					if(oData.status === 200) {
+						// 验证密码
+						return promiseAjax({
+							type: 'post',
+							url: 'checkPassword.php',
+							data: {password:sPassword},
+						});
+					} else {
+						alert(oData.info);
+						throw new Error('失败！！！');
+					}
+				}).then(function (data) {
+					var oData = JSON.parse(data);
+					if(oData.status === 200) {
+						alert('全部通过');
+					} else {
+						alert(oData.info);
+					}
+				}).catch(function () {
+					console.error('失败啦！！！');
+				});*/
+			}
+		}
+	</script>
+</head>
+<body>
+	<form action="javascript:;" name="login">
+		<div>帐号：<input type="text" name="account"></div>
+		<div>密码：<input type="password" name="password"></div>
+		<input type="submit" value="登录">
+	</form>
+</body>
+</html>

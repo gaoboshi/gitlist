@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第四天案例</title>
+	<script type="text/javascript">
+		window.onload = function () {
+			// 编写任意个数字的求和、差、积、商
+			var oA = $('a'), oB = $('b'), oC = $('c'), oBtn = $('btn');
+
+			// 给按钮添加click事件
+			oBtn.onclick = function () {
+				var
+					iAVal = Number(oA.value),
+					iBVal = Number(oB.value),
+					iCVal = Number(oC.value);
+
+				// 计算和
+				// console.log(sum(iAVal, iBVal, iCVal));
+				// 计算差
+				// console.log(minus(iAVal, iBVal, iCVal));
+				// 计算积
+				// console.log(product(iAVal, iBVal, iCVal));
+				// 计算商
+				console.log(divide(iAVal, iBVal, iCVal));
+			};
+
+
+			// 求和函数
+			function sum() {
+				var iSum = 0;
+				for(var i = 0; i < arguments.length; i++) {
+					iSum = iSum + arguments[i];
+				}
+				return iSum;
+			}
+			// 求差函数
+			function minus() {
+				var iMinus = arguments[0];
+				for(var i = 1; i < arguments.length; i++) {
+					iMinus = iMinus - arguments[i];
+				}
+				return iMinus;
+			}
+
+			// 求积函数
+			function product() {
+				var iProduct = 1;
+				for(var i = 0; i < arguments.length; i++) {
+					iProduct = iProduct * arguments[i];
+				}
+				return iProduct;
+			}
+
+			// 求商函数
+			function divide() {
+				var iDivide = arguments[0];
+
+				for(var i = 1; i < arguments.length; i++) {
+					iDivide = iDivide / arguments[i];
+				}
+
+				return iDivide;
+			}
+
+			// 通过ID获取DOM节点对象
+			function $(id) {
+				return document.getElementById(id);
+			}
+		};
+	</script>
+</head>
+<body>
+	<form action="javascript:;">
+		<input type="text" id="a">
+		<input type="text" id="b">
+		<input type="text" id="c">
+		<input type="submit" id="btn" value="计算">
+	</form>
+</body>
+</html>

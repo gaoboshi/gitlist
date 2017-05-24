@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>使用单例模式实现信息提示框</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#prompt {
+			position: absolute;
+			top: 30%;
+			left: 50%;
+			margin-left: -155px;
+			padding: 6px 4px;
+			width: 300px;
+			overflow: hidden;
+			border: 1px solid #ccc;
+		}
+		#prompt h3 {
+			line-height: 30px;
+			border-bottom: 1px solid #ccc;
+		}
+		#prompt #close {
+			float: right;
+		}
+		#prompt #body {
+			padding: 6px 0;
+			border-bottom: 1px solid #ccc;
+		}
+		#prompt a {
+			float: left;
+			margin: 6px 4px;
+			padding: 4px;
+			color: #fff;
+			background: #ccc;
+			text-decoration: none;
+		}
+		#prompt a:active {
+			background: orange;
+		}
+	</style>
+	<script type="text/javascript">
+		function $(id) {
+			return document.getElementById(id);
+		}
+		function Alert() {}
+		// 创建信息提示框
+		Alert.prototype.create = function () {
+			var oPrompt = document.createElement('div');
+			oPrompt.id = 'prompt';
+			oPrompt.innerHTML = `<h3><span id="close">&times;</span><span id="title"></span></h3>
+		<div id="body"></div>
+		<a href="javascript:;" id="confirm">确定</a><a href="javascript:;" id="cancel">取消</a>`;
+			document.body.appendChild(oPrompt);
+
+			// 做个缓存
+			Alert.el = oPrompt;
+
+			// 获取需要操作的节点
+			Alert.title = $('title');
+			Alert.body = $('body');
+			
+
+			// 添加关闭事件
+			$('close').onclick = function () {
+				this.hide();
+			}.bind(this);
+			$('confirm').onclick = function () {
+				this.hide();
+			}.bind(this);
+			$('cancel').onclick = function () {
+				this.hide();
+			}.bind(this);
+		}
+		// 显示提示框
+		Alert.prototype.show = function ({title, content}={}) {
+			if(!Alert.el) {
+				this.create();
+			} else {
+				Alert.el.style.display = 'block';
+			}
+			Alert.title.innerHTML = title;
+			Alert.body.innerHTML  = content;
+		}
+
+		// 隐藏提示框
+		Alert.prototype.hide = function () {
+			Alert.el.style.display = 'none';
+		}
+	</script>
+	<script type="text/javascript">
+		window.onload = function () {
+			var oBtn1 = $('btn1'), oBtn2 = $('btn2');
+			oBtn1.onclick = function () {
+				new Alert().show({
+					title: '标题1',
+					content: '内容1'
+				});
+			};
+			oBtn2.onclick = function () {
+				new Alert().show({
+					title: '标题2',
+					content: '内容2'
+				});
+			};
+		}
+	</script>
+</head>
+<body>
+	<button id="btn1">按钮1</button>
+	<button id="btn2">按钮2</button>
+</body>
+</html>

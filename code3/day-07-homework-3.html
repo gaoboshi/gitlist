@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第七天课后案例</title>
+	<script type="text/javascript">
+		var sStr = 'goodgoodstudy';
+
+		// 统计字符和对应的次数，放到对象中
+		var aStr = sStr.split('');
+		var oTimes = {};
+		for(var i = 0; i < aStr.length; i++) {
+			// 判断当前字符是否第一次出现
+			if(oTimes[aStr[i]]) {
+				oTimes[aStr[i]]++;
+			} else {
+				oTimes[aStr[i]] = 1;
+			}
+		}
+
+		// 遍历对象输出
+		var sStr = ''; // 满足第一个需求
+		var sUnique = ''; //满足第二个需求
+		for(var sAttr in oTimes) {
+			sStr += sAttr + oTimes[sAttr]+ '、';
+			sUnique += sAttr;
+		}
+
+		console.log(sUnique);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

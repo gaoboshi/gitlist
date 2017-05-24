@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>级联菜单</title>
+	<script type="text/javascript" src="common.js"></script>
+	<script type="text/javascript">
+		window.onload = function () {
+			var
+				oProvince = $('province'),
+				oCity	  = $('city'),
+				oCounty	  = $('county');
+
+			// 获取省份列表
+			promiseAjax({
+				type: 'get',
+				url: 'province.php',
+			}).then(function (data) {
+				var oData = JSON.parse(data);
+				oData.forEach(function (v) {
+					var
+						oOption = document.createElement('option');
+						oOption.value = v.id;
+						oOption.innerHTML = v.name;
+						oProvince.appendChild(oOption);
+				});
+			});
+
+			// 获取城市列表
+			oProvince.onchange = function () {
+				promiseAjax({
+					type: 'get',
+					url: 'city.php',
+					data: {id: this.value}
+				}).then(function (data) {
+					oCity.innerHTML = '';
+					var oData = JSON.parse(data);
+					oData.forEach(function (v) {
+						var
+							oOption = document.createElement('option');
+							oOption.value = v.id;
+							oOption.innerHTML = v.name;
+							oCity.appendChild(oOption);
+					});
+				});
+			}
+		}
+	</script>
+</head>
+<body>
+	<select id="province">
+		<option value="0">请选择省份</option>
+	</select>
+	<select id="city"></select>
+	<select id="county"></select>
+</body>
+</html>

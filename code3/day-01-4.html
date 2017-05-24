@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第一天-案例</title>
+	<script type="text/javascript">
+		// 当页面加载完毕以后执行函数
+		window.onload = function () {
+			// getElmentById方法：通过ID获取DOM对象
+			var
+				oSum  = document.getElementById('sum'),
+				oSumA = document.getElementById('sum_a'),
+				oSumB = document.getElementById('sum_b');
+
+			// 添加click事件
+			oSum.onclick = function () {
+				alert(Number(oSumA.value) + parseFloat(oSumB.value));
+			};
+		};
+	</script>
+</head>
+<body>
+	<input type="text" id="sum_a">
+	<input type="text" id="sum_b">
+	<input type="submit" value="计算" id="sum">
+</body>
+</html>

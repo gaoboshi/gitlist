@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第四天练习题</title>
+	<script type="text/javascript">
+		window.onload = function () {
+			var oA = $('a'), oB = $('b'), oBtn = $('btn');
+
+			// 给按钮添加click事件
+			oBtn.onclick = function () {
+				var
+					iAVal = Number(oA.value),
+					iBVal = Number(oB.value);
+
+				// 进行数据交换
+				if(iAVal > iBVal) {
+					var iTemp = iAVal;
+
+					iAVal = iBVal;
+					iBVal = iTemp;
+				}
+				combine(iAVal, iBVal);
+			}
+
+			// 封装组合函数
+			function combine(a, b) {
+				for(var i = a; i <= b; i++) {
+					for(var j = a; j<= b; j++) {
+						if(i !== j && j % 2 === 1) {
+							console.log(''+ i + j);
+						}
+					}
+				}
+			}
+			// 通过ID获取DOM节点对象
+			function $(id) {
+				return document.getElementById(id);
+			}
+		};
+	</script>
+</head>
+<body>
+	<form action="javascript:;">
+		<input type="text" id="a">
+		<input type="text" id="b">
+		<input type="submit" value="组合" id="btn">
+	</form>
+</body>
+</html>

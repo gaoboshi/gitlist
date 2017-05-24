@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十天 下午</title>
+	<script type="text/javascript">
+		window.onload = function () {
+
+			//文档碎片
+			/*var oBox = document.getElementById('box');
+			var oFragment = document.createDocumentFragment();
+			for(var i = 1; i<=100; i++) {
+				var oLi = document.createElement('li');
+				oLi.innerHTML = '这是第' + i + '个LI';
+				// oBox.appendChild(oLi);
+				oFragment.appendChild(oLi);
+			}
+
+			oBox.appendChild(oFragment);*/
+
+			// 计算属性
+			/*console.log($('inner').parentNode);
+			console.log($('inner').offsetParent);*/
+			// console.log($('inner').offsetLeft);
+			// console.log($('inner').offsetTop);
+
+			// document.documentElement.scrollTop || document.body.scrollTop
+			$('outer').onscroll = function () {
+				// console.log($('outer').scrollTop);
+				// console.log($('outer').scrollLeft);
+				// console.log($('outer').clientWidth);
+				// console.log($('outer').clientHeight);
+
+				// console.log($('inner').offsetWidth);
+				// console.log($('inner').offsetHeight);
+/*
+				console.log($('outer').scrollWidth);
+				console.log($('outer').scrollHeight);*/
+			}
+
+
+			function $(id) {
+				return document.getElementById(id);
+			}
+		}
+	</script>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#outer {
+			margin: 30px auto;
+			width: 200px;
+			height: 400px;
+			border: 1px solid #ccc;
+			overflow: auto;
+		}
+		#inner {
+			width: 400px;
+			height: 800px;
+		}
+	</style>
+</head>
+<body>
+	<ul id="box"></ul>
+
+	<!-- <div id="outer" style="position: relative; width: 400px; height: 400px; border: 1px solid #000; padding-top: 10px;">
+		<div id="middle">
+			<div id="inner" style="width: 200px; height: 200px; background: red; margin-top: 10px; position: absolute; top: 20px;"></div>
+		</div>
+	</div> -->
+
+	<div id="outer">
+		<div id="inner">
+			腾讯体育3月24日长沙 （文/赵宇 曾潇）1比0战胜韩国队之后，国足将士们都很兴奋，不少人喜极而泣。可这喜悦氛围不能持续太长时间，毕竟五天之后就要在德黑兰挑战伊朗队，这场比赛会更加困难。根据安排，全队今日一大早就将进行恢复训练，不得有任何松懈。
+比赛结束后，国足乘坐大巴从赛场回到酒店。赢了球，全队上下都非常兴奋，一时间很难以入睡。但所有人也都知道，这样的兴奋不能维持太长时间。只有28日客场同伊朗队比赛能够取得胜利，那么才能让进军世界杯的梦想变得更真实一些。
+球队工作人员昨晚已将第二天的工作计划发给了每个人，早上七点到九点半是早餐时间。由于上午要训练，每个人都要去餐厅吃早餐，所以国脚们也没法睡懒觉。球队工作人员早上七点半就要起床收拾行李以及训练用品，为上午的训练做准备。
+早上九点十分，球队工作人员前往球场为接下来的训练做准备，队员们则是九点半出发前往体育场进行恢复性训练。虽然这样的恢复性训练量不会很大，但却让每一个人没法在比赛过后松懈下来。
+球队训练会持续一个半小时，然后全队一起回到酒店吃午餐。中午一点，球队将前往长沙机场，乘坐专机前往德黑兰准备客场同伊朗队比赛。国家队已有两名工作人员提前前往德黑兰打前站，为球队接下来在那里的训练和比赛做准备。
+从目前计划来看，国足将于伊朗时间24日晚上抵达德黑兰，然后直接前往下榻酒店，队员们休息，第二天开启在那里的第一堂训练课。
+		</div>
+	</div>
+</body>
+</html>

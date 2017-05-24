@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>照片墙位置保存</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		img {
+			position: absolute;
+			width: 200px;
+		}
+		.active {
+			z-index: 1;
+		}
+	</style>
+	<script type="text/javascript" src="../common.js"></script>
+	<script type="text/javascript">
+		window.onload = function () {
+			let
+				aImg  = document.getElementsByTagName('img'),
+				iWinW = document.documentElement.clientWidth,
+				iWinH = document.documentElement.clientHeight;
+			Array.from(aImg).forEach(function (v, k) {
+
+				// 如果当前图片在cookie中存有记录，则使用该记录，否则随机生成
+				var
+					iL, iT,
+					aPos = JSON.parse(getCookie('pos'));
+				for(var i = 0; i< aPos.length; i++) {
+					if(aPos[i].index === k) {
+						iL = aPos[i].left;
+						iT = aPos[i].top;
+						break;
+					}
+				}
+				if(iL === undefined && iT === undefined) {
+					// 随机生成位置
+					iL = Math.floor(Math.random() * (iWinW - v.offsetWidth)),
+					iT = Math.floor(Math.random() * (iWinH - v.offsetHeight));
+				}
+
+				v.style.left = iL + 'px';
+				v.style.top  = iT + 'px';
+
+				// 添加拖拽效果
+				v.index = k;
+				v.onmousedown = function (ev) {
+					var oThat = this;
+					if(oThat.setCapture){
+						oThat.setCapture();
+					}
+					var
+						ev = ev || window.event,
+						iX = ev.clientX - oThat.offsetLeft,
+						iY = ev.clientY - oThat.offsetTop;
+
+					// 提高层级
+					oThat.className = 'active';
+
+					document.onmousemove = function (ev) {
+						var
+							ev = ev || window.event,
+							iL = ev.clientX - iX,
+							iT = ev.clientY - iY;
+
+						oThat.style.left = iL + 'px';
+						oThat.style.top  = iT + 'px';
+
+						var oImg = {
+								index: oThat.index,
+								left: iL,
+								top: iT
+							};
+
+						// 将图片的位置存入cookie
+						var sCookie = getCookie('pos');
+
+						if(sCookie === false) {
+							var aImg = [];
+							aImg.push(oImg);
+						} else {
+							var aImg = JSON.parse(sCookie);
+							// 假设该图片的位置没有被记录过
+							var bBtn = true; 
+							for(var i = 0; i < aImg.length; i++) {
+								if(aImg[i].index === oThat.index) {
+									aImg.splice(i, 1, oImg);
+									bBtn = false;
+								}
+							}
+							// 如果bBtn为true，则说明是第一次记录
+							if(bBtn) {
+								aImg.push(oImg);
+							}
+						}
+						
+						setCookie('pos',JSON.stringify(aImg), 7, '/');
+					};
+					document.onmouseup = function () {
+						document.onmousemove = null;
+						document.onmouseup = null;
+						if(oThat.releaseCapture) {
+							oThat.releaseCapture();
+						}
+
+						// 释放层级
+						oThat.className = '';
+					};
+					return false;
+				}
+			});
+		}
+	</script>
+</head>
+<body>
+	<img src="images/1.jpg" alt="">
+	<img src="images/2.jpg" alt="">
+	<img src="images/3.jpg" alt="">
+	<img src="images/4.jpg" alt="">
+	<img src="images/5.jpg" alt="">
+	<img src="images/6.jpg" alt="">
+	<img src="images/7.jpg" alt="">
+	<img src="images/8.jpg" alt="">
+</body>
+</html>

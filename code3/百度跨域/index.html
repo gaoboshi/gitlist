@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>百度跨域</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		ul {
+			list-style: none;
+		}
+		#logo {
+			display: block;
+			margin: 50px auto;
+			width: 200px;
+		}
+		form[name=search-box] {
+			margin: 0 auto;
+			width: 400px;
+		}
+		input[name=search-content] {
+			box-sizing: border-box;
+			width: 300px;
+			height: 36px;
+			border: 1px solid #ccc;
+			vertical-align: bottom;
+		}
+		input[type=submit] {
+			box-sizing: border-box;
+			width: 100px;
+			height: 36px;
+			border:0;
+			background: blue;
+			color: #fff;
+		}
+		#list li{
+			line-height: 30px;
+			border-bottom: 1px dashed #ccc;
+		}
+	</style>
+</head>
+<body>
+	<img src="logo.png" id="logo">
+	<form action="javascript:;" name="search-box">
+		<input type="text" name="search-content"><input type="submit" value="百度一下">
+		<ul id="list"></ul>
+	</form>
+	<script type="text/javascript">
+		// 创建回调函数
+		function callback(data) {
+			var oList = document.getElementById('list');
+			oList.innerHTML = '';
+			data.s.forEach(function (v) {
+				var oLi = document.createElement('li');
+				oLi.innerHTML = v;
+				oList.appendChild(oLi);
+			});
+		}
+		window.onload = function () {
+			var
+				oSearchBox = document.forms['search-box'],
+				oSearchContent = oSearchBox.elements['search-content'];
+
+			oSearchContent.oninput = function () {
+				// 创建script标签
+				var oScript =document.createElement('script');
+				oScript.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+this.value+'&json=1&p=3&sid=1468_21119_20928&req=2&csor=1&cb=callback';
+
+				document.body.appendChild(oScript);
+
+				document.body.removeChild(oScript);
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>封装cookie</title>
+	<script type="text/javascript">
+		// 添加/修改cookie
+		function setCookie(sName, sValue, iDay, sPath) {
+			var oDate = new Date();
+			oDate.setDate(oDate.getDate() + iDay);
+			document.cookie = sName + '=' + encodeURIComponent(sValue) + ';expires=' + oDate +';path=' + sPath;
+		}
+
+		// 获取cookie
+		function getCookie(sName) {
+			var aCookie = document.cookie.split('; ');
+			for(var i = 0; i < aCookie.length; i++) {
+				var aTemp = aCookie[i].split('=');
+				if(aTemp[0] === sName) {
+					return decodeURIComponent(aTemp[1]);
+				}
+			}
+		}
+
+		// 删除cookie
+		function removeCookie(sName, sPath) {
+			document.cookie = sName +'=;expires=-1;path=' + sPath;
+		}
+
+		// 添加
+		// setCookie('name', '=张三', 7, '/');
+		// setCookie('age', 28, 7, '/');
+
+		// 获取
+		// console.log(getCookie('name'));
+
+		// 修改
+		// setCookie('age', 32, 8, '/');
+
+		// 删除cookie
+		// removeCookie('name', '/');
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

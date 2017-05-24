@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹出框-面向对象编程</title>
+	<link rel="stylesheet" href="day-19-1.css">
+	<script src="common.js"></script>
+	<script src="popup.js"></script>
+	<script type="text/javascript">
+			window.onload = function () {
+				var
+					oBtn1 = $('btn1'),
+					oBtn2 = $('btn2'),
+					oBtn3 = $('btn3');
+
+				oBtn1.onclick = function () {
+					Popup.show({
+						title: '标题1',
+						content: '内容1'
+					});
+				}
+				oBtn2.onclick = function () {
+					Popup.show({
+						title: '标题2',
+						content: '内容2'
+					});
+				}
+				oBtn3.onclick = function () {
+					Popup.show({
+						title: '标题3',
+						content: '内容3'
+					});
+				}
+			}
+	</script>
+</head>
+<body>
+	<button id="btn1">弹出1</button>
+	<button id="btn2">弹出2</button>
+	<button id="btn3">弹出3</button>
+</body>
+</html>

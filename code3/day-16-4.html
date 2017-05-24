@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>抛物线</title>
+	<script type="text/javascript" src="common.js"></script>
+	<script type="text/javascript">
+		window.onload = function () {
+			var
+				oStart = $('start'),
+				oRed = $('red'),
+				oTimer = null,
+				iSpeedX = 20,
+				iSpeedY = -40;
+			oStart.onclick = function () {
+				clearInterval(oTimer);
+
+				oTimer = setInterval(function () {
+					iSpeedY += 2;
+					oRed.style.left = oRed.offsetLeft + iSpeedX + 'px';
+					oRed.style.top = oRed.offsetTop + iSpeedY + 'px';
+				}, 50);
+			}
+		}
+	</script>
+</head>
+<body>
+	<button id="start">开始</button>
+	<div id="red" style="position: absolute;width: 100px;height: 100px; background: red;top: 100px; border-radius: 50%; top: 500px;"></div>
+</body>
+</html>

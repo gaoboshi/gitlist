@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>highcharts</title>
+	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+	<script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/highcharts-more.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			$('#box').highcharts({
+				chart: {
+					type: 'line'
+				},
+				title: {
+					text: '千锋H5-1701班成绩'
+				},
+				xAxis: {
+					categories: ['小明', '小张', '小马']
+				},
+				yAxis: {
+					title: '人名'
+				},
+				series: [
+					{
+						name: '语文',
+						data: [135, 147, 150]
+					},
+					{
+						name: '数学',
+						data: [144, 123, 136]
+					},
+					{
+						name: '英语',
+						data: [147, 123, 143]
+					}
+				],
+				credits:{
+					// enabled: false
+					text: '郑州H5-1701',
+					href: 'http://www.baidu.com'
+				}
+			});
+			/*$('#box').highcharts({
+			    chart: {
+			        type: 'bubble',
+			        plotBorderWidth: 1,
+			        zoomType: 'xy'
+			    },
+			    title: {
+			        text: 'Highcharts 3D气泡图'
+			    },
+			    xAxis: {
+			        gridLineWidth: 1
+			    },
+			    yAxis: {
+			        startOnTick: false,
+			        endOnTick: false
+			    },
+			    series: [{
+			        name:'气泡1',
+			        data: [
+			            [9, 81, 63],
+			            [98, 5, 89],
+			            [51, 50, 73],
+			            [41, 22, 14],
+			            [58, 24, 20],
+			            [78, 37, 34],
+			            [55, 56, 53],
+			            [18, 45, 70],
+			            [42, 44, 28],
+			            [3, 52, 59],
+			            [31, 18, 97],
+			            [79, 91, 63],
+			            [93, 23, 23],
+			            [44, 83, 22]
+			        ],
+			        marker: {
+			            fillColor: {
+			                radialGradient: { cx: 0.4, cy: 0.3, r: 0.7 },
+			                stops: [
+			                    [0, 'rgba(255,255,255,0.5)'],
+			                    [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0.5).get('rgba')]
+			                ]
+			            }
+			        }
+			    }, {
+			        name:'气泡2',
+			        data: [
+			            [42, 38, 20],
+			            [6, 18, 1],
+			            [1, 93, 55],
+			            [57, 2, 90],
+			            [80, 76, 22],
+			            [11, 74, 96],
+			            [88, 56, 10],
+			            [30, 47, 49],
+			            [57, 62, 98],
+			            [4, 16, 16],
+			            [46, 10, 11],
+			            [22, 87, 89],
+			            [57, 91, 82],
+			            [45, 15, 98]
+			        ],
+			        marker: {
+			            fillColor: {
+			                radialGradient: { cx: 0.4, cy: 0.3, r: 0.7 },
+			                stops: [
+			                    [0, 'rgba(255,255,255,0.5)'],
+			                    [1, Highcharts.Color(Highcharts.getOptions().colors[1]).setOpacity(0.5).get('rgba')]
+			                ]
+			            }
+			        }
+			    }]
+			});*/
+		});
+	</script>
+</head>
+<body>
+	<div id="box" style="width: 800px; height: 600px;"></div>
+</body>
+</html>

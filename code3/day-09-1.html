@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>history对象</title>
+	<script type="text/javascript">
+		// history对象
+		/*console.log(history.length);
+
+		window.onload = function () {
+			var oBtn = document.getElementById('btn');
+
+			oBtn.onclick = function () {
+				// history.back();
+				history.go(-1);
+			}
+		}*/
+
+		// location对象
+		// location.href = 'http://www.baidu.com';
+
+		// console.log(location.search);
+		// console.log(location.hash);
+
+		// console.log(location.hash.substring(4, 6));
+
+		window.onload = function () {
+			var oAssign = document.getElementById('assign');
+			oAssign.onclick = function () {
+				// location.assign('http://www.baidu.com');
+				// location.reload(true);
+
+				// location.replace('http://www.baidu.com');
+			}
+		}
+
+		// navigator对象
+		console.log(navigator.appName);
+		console.log(navigator.appVersion);
+		console.log(navigator.platform);
+		console.log(navigator.userAgent);
+	</script>
+</head>
+<body>
+	<a href="day-09-hisotry-1.html">跳转</a>
+	<button id="btn">回退</button>
+
+	<hr/>
+	// 完整的URL组成部分：协议(http://或https://)+端口号(80(8080、8081、))+域名(www.jd.com)+查询字符串(?)+哈希字符串(#)
+	<hr/>
+
+	<button id="assign">加载</button>
+</body>
+</html>

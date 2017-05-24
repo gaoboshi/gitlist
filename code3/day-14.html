@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则表达式</title>
+	<script type="text/javascript">
+		// 创建正则对象
+		// 第一种
+		// var oReg = new RegExp('study', 'ig');
+		// 第二种
+		// var oReg = /study/ig;
+		// var sStr = 'go1od^$ 3goood2 4Study_, 7day day66 up4_, goooood gooood study';
+		var sStr = 'good gssd gsd god gdd gad';
+		// var oReg = /o*/ig;
+		// var oReg = /o+/ig;
+		// var oReg = /o?/ig;
+		// var oReg = /o{3}/ig;
+		// var oReg = /o{3,}?/ig;
+		// var oReg = /o{3,4}/ig;
+		// var oReg = /[^o]/g;
+		// var oReg = /[^s-y]/ig;
+		// var oReg = /[0-9a-zA-Z]/g;
+		// var oReg = /\d/g;
+		// var oReg = /\D/g;
+		// var oReg = /\w/g;
+		// var oReg = /\W/g;
+		// var oReg = /\s/g;
+		// var oReg = /\S/g;
+		// var oReg = /./g;
+		// var oReg = /^\d.*/;
+		// var oReg = /\w*!$/;
+		// var oReg = /\w+\d\b/g;
+		// var oReg = /\b\d\w{1,}\d\b/g;
+		// var oReg = /\B\d\w{1,}/g;
+		//var oReg = /\$/;
+		// var oReg = /(day|ooo)/g;
+		//var oReg = /g(o|s){1,2}d/g;
+		// 正则表达式对象的方法
+		// var bBool = oReg.test(sStr);
+		/*var oRet1 = oReg.exec(sStr);
+		var oRet2 = oReg.exec(sStr);*/
+		// 字符串的方法
+		// var iIndex = sStr.search(oReg);
+		// var aMatch = sStr.match(oReg);
+		// var sNewStr = sStr.replace(oReg, 'programing');
+		// var aStr = sStr.split(oReg);
+
+		// 正则的组成
+
+		var aRet = sStr.match(oReg);
+
+		console.log(aRet);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

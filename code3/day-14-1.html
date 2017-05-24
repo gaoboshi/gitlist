@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则表达式</title>
+	<script type="text/javascript">
+		// 捕获型分组/非捕获型分组
+		/*var
+			sStr = 'goodgoodstudydaydayup';
+			oReg = /(?:good)(study)/;
+
+		console.log(sStr.match(oReg));*/
+
+		// 正向预查
+		var sStr = 'windows98 windows2000 windows2003 windowsXP windows7 windows8 windows8.1 windows10 windowsVista';
+
+		// var oReg = /windows(?=XP|8\.1)/g;
+		// var oReg = /windows(?!XP|8\.1)/g;
+
+
+		// 手机号检测
+		// var oRegPhone = /^1\d{10}$/;
+
+		// 身份证检测
+		// var oRegCard = /^\d{17}[1-9xX]$/;
+
+		// 日期检测
+		/*
+			2017-01-01、2017/01/01、2017.01.01
+		*/
+		/*var sDate = '2017/01-01';
+		var oRegDate = /\d{4}(\-|\.|\/)\d{2}\1\d{2}/;*/
+
+		// 中文编码
+		/*var oRegChinese = /^[\u2E80-\u9FFF]+$/;
+		var sStr = '氼毜';*/
+
+		// 用户名检测
+		/*var oReg = /^[0-9a-zA-Z_\-]{3,8}$/;
+		var sUsername = 'qwerty1';*/
+
+		// 字符串过滤
+		/*var oReg = /(shit|fuck)/g;
+		var sStr = 'shit good good shit fuck good';*/
+
+		// 邮箱正则
+		/*var oRegEmail = /^[a-z\d]+(\.[a-z\d]+)*@([\da-z](-[\da-z])?)+(\.{1,2}[a-z]+)+$/;
+
+		var sEmail = 'shuaige@162.com';*/
+
+		// 验证URL
+		//var oRegUrl = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+
+		// 验证HTML标签
+		// var oRegTag = /^<([a-z]+)([^<]+)*(?:>(.*)<\/\1>|\s+\/>)$/;
+
+		console.log(oRegTag.test('<div>你好</div>'));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

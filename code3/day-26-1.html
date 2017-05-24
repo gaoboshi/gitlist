@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery</title>
+	<script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.8.3/jquery.js"></script>
+</head>
+<body>
+	<div id="box" style="width: 100px; height: 100px; background: blue;"></div>
+	<div class="one"></div>
+	<ul id="list">
+		<li>这是1个LI</li>
+		<li class="active"><span></span>这是2个LI</li>
+		<li><span></span>这是3个LI</li>
+		<li>这是4个LI</li>
+		<li>这是5个LI</li>
+		<li class="active">这是6个LI</li>
+	</ul>
+
+	<input type="text" name="username" disabled="disabled" age="28" value="哈哈哈哈">
+	<script type="text/javascript">
+		//document.getElementById('box').style.background = 'red';
+
+		// $('#box').css('background', '#000');
+		// console.log($('.one'));
+		// console.log(Array.isArray($('div')));
+
+		// console.log($('#list li:first'));
+		// console.log($('#list li:last'));
+		// console.log($('#list li:even'));
+		// console.log($('#list li:odd'));
+		// console.log($('#list li:eq(1)'));
+		// console.log($('#list li:not(.active)'));
+		// console.log($('#list li:has(span)'));
+
+		// 读取属性
+		// console.log($('input[name=username]').attr('disabled')); // disabled
+		// console.log($('input[name=username]').attr('age')); // 28
+
+		// console.log($('input[name=username]').prop('disabled')); // true
+		// console.log($('input[name=username]').prop('age')); // undefined
+
+
+		// 修改属性
+		/*console.log($('input[name=username]').attr('disabled', false));
+		console.log($('input[name=username]').attr('age', 14));*/
+
+		/*console.log($('input[name=username]').prop('disabled', false));
+		console.log($('input[name=username]').prop('age', 16));*/
+
+		// 删除属性
+		/*$('input[name=username]').removeAttr('disabled');
+		$('input[name=username]').removeAttr('age');*/
+
+		/*$('input[name=username]').removeProp('disabled');
+		$('input[name=username]').removeProp('age');*/
+
+		// 操作class
+		/*$('#list').addClass('news');
+		$('#list').removeClass('news');*/
+		/*$('#list').toggleClass('news');
+		$('#list').toggleClass('news');*/
+
+		// 操作内容
+		// console.log($('#list').html('<b>aaa</b>'));
+		// console.log($('#list').text('<b>aaa</b>'));
+		// console.log($('input').val('呵呵呵'));
+
+		//console.log($('#box').css('backgroundColor'));
+		/*$('#box').css('background', 'red');
+		$('#box').css('width', 200);
+		$('#box').css('height', 200);*/
+		/*$('#box').css({
+			background: 'red',
+			width: 200,
+			height: 200
+		});*/
+	</script>
+</body>
+</html>

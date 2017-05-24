@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>灿烂星河</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		html{
+			height: 100%;
+			background: url(images/bg.jpg) left top no-repeat;
+			background-size: cover;
+		}
+	</style>
+	<script type="text/javascript" src="../common.js"></script>
+	<script type="text/javascript">
+		//创建星星的构造函数
+		function Star() {
+			this.create = function ({width, height}={}) {
+				// 创建星星
+				var oImg = document.createElement('img');
+				oImg.src = 'images/star.jpg';
+				oImg.style.position = 'absolute';
+				oImg.style.width  = width + 'px';
+				oImg.style.height = height + 'px';
+				document.body.appendChild(oImg);
+
+				this.el = oImg;
+
+				// 创建星星显示的位置
+				this.createPos();
+				oImg.style.left   = this.iL + 'px';
+				oImg.style.top    = this.iT + 'px';
+
+				return this;
+			};
+			this.createPos = function () {
+				var
+					iWinW = document.documentElement.clientWidth,
+					iWinH = document.documentElement.clientHeight;
+				this.iL = Math.round(Math.random() * (iWinW - this.el.offsetWidth));
+				this.iT = Math.round(Math.random() * (iWinH - this.el.offsetHeight));
+			};
+			this.move = function () {
+				// 随机生成星星下一次要运动到的位置
+				this.createPos();
+
+				var oThat = this;
+				bufferMove(this.el,{left: this.iL,top: this.iT}, function () {
+					oThat.move();
+				});
+			}
+		}
+
+		window.onload = function () {
+			for(var i = 0; i < 30; i++) {
+				var oStar = new Star();
+				var iSize = Math.round(Math.random() * 20) + 20;
+				oStar.create({width: iSize,height: iSize}).move();
+			}
+		}
+	</script>
+</head>
+<body>
+</body>
+</html>

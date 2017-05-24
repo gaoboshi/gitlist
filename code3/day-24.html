@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>promise</title>
+	<script type="text/javascript">
+	var
+		oPromise1 = new Promise(function (resolve, reject) {
+			setTimeout(function () {
+				resolve(1);
+			}, 3000);
+			
+		}),
+		oPromise2 = new Promise(function (resolve, reject) {
+			setTimeout(function () {
+				reject(2);
+			}, 2000);
+		}),
+		oPromise3 = new Promise(function (resolve, reject) {
+			setTimeout(function () {
+				reject(3);
+			}, 4000);
+		});
+		// promise all方法
+		/*
+		var oRet = Promise.all([oPromise1, oPromise2, oPromise3]);
+
+		oRet.then(function (data) {
+			console.log(data);
+		}, function (err) {
+			console.log(err);
+		});*/
+
+		// promise race方法
+		var p = Promise.race([oPromise1, oPromise2, oPromise3]);
+
+		p.then(function (data) {
+			console.log(data);
+		}, function (err) {
+			console.error(err);
+		});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

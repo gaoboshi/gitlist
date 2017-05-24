@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第七天作业</title>
+	<script type="text/javascript">
+		window.onload = function () {
+			var
+				oBtn = $('btn'),
+				oMsg = $('message'),
+				oList = $('list');
+
+			// 给btn添加onclick事件
+			oBtn.onclick = function () {
+				var sVal = oMsg.value;
+
+				// 内容不为空的情况下，提交
+				if(sVal !== '') {
+					// 敏感词过滤
+					sVal = sVal.replace('金三胖', '***');
+
+					// 插入到UL最后的位置
+
+					// 创建一个LI
+					var oLi = document.createElement('li');
+					// 将替换后的内容填充到LI中
+					oLi.innerHTML = sVal;
+
+					// 将LI插入到Ul的最后一个位置
+					oList.appendChild(oLi);
+
+					// 清空输入框的内容
+					oMsg.value = '';
+				}
+
+			};
+
+			// 封装$函数
+			function $(id) {
+				return document.getElementById(id);
+			}
+		}
+	</script>
+</head>
+<body>
+	<h2>请留言</h2>
+	<textarea id="message" cols="30" rows="10"></textarea>
+	<button id="btn">留言</button>
+	<hr>
+	<h2>留言列表</h2>
+	<ul id="list">
+		<li>这是第1条留言</li>
+		<li>这是第2条留言</li>
+		<li>这是第3条留言</li>
+		<li>这是第4条留言</li>
+		<li>这是第5条留言</li>
+		<li>这是第6条留言</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>定义回调函数</title>
+</head>
+<body>
+	<script type="text/javascript" src="common.js"></script>
+	<script type="text/javascript">
+		// cookie
+		document.cookie = 'name=lisi';
+		// 第一步定义回调函数
+		/*function callback(data) {
+			console.log(data);
+		}
+		// 创建script标签
+		var oScript = document.createElement('script');
+		oScript.src = 'http://127.0.0.1/news.php?cb=callback';
+		document.body.appendChild(oScript);*/
+
+		// CORS跨域
+		ajax({
+			type: 'get',
+			url: 'http://127.0.0.1/news.php',
+			fn: function (data) {
+				console.log(data);
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>切换图片</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#box {
+			margin: 30px auto;
+			width: 600px;
+			border: 1px solid #ccc;
+		}
+		#beauty {
+			display: block;
+			margin: 10px auto;
+			max-width: 60%;
+		}
+		#button{
+			background: #eee;
+			cursor: pointer;
+		}
+		#button span {
+			display: inline-block;
+			width: 25%;
+			line-height: 36px;
+			text-align: center;
+		}
+		#button .active {
+			background: #ccc;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function () {
+			var
+				oButton = $('button'),
+				aSpan   = oButton.children,
+				oBeauty = $('beauty');
+
+			for(var i = 0; i < aSpan.length; i++) {
+				aSpan[i].index = i;
+				aSpan[i].onclick = function () {
+					// 切换图片
+					oBeauty.src = 'images/'+(this.index + 1)+'.jpg';
+					// 清除所有按钮的样式
+					for(var j = 0; j < aSpan.length; j++) {
+						aSpan[j].className = '';
+					}
+					// 当前的按钮添加样式
+					this.className = 'active';
+				};
+			}
+		}
+		function $(id) {
+			return document.getElementById(id);
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+<div id="button"><span class="active">图片1</span><span>图片2</span><span>图片3</span><span>图片4</span></div>
+	<img src="images/1.jpg" id="beauty">
+	</div>
+</body>
+</html>

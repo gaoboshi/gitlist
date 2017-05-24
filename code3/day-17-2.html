@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>链式运动</title>
+	<script type="text/javascript">
+		function bufferMove(obj, oTarget, fn){
+			clearInterval(obj.oTimer);
+			obj.oTimer = setInterval(function () {
+				// 假设所有的属性均已运动完毕
+				var bBtn = true;
+				// 遍历对象
+				for(var sAttr in oTarget) {
+					// 获取当前值
+					if(sAttr === 'opacity') {
+						var iCur = parseInt(getStyle(obj, sAttr) * 100);
+					} else {
+						var iCur = parseInt(getStyle(obj, sAttr));
+					}
+					// 计算速度
+					var iSpeed = (oTarget[sAttr] - iCur) / 8;
+					iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+
+					// 开始赋值
+					var iNext = iCur + iSpeed;
+					if(sAttr === 'opacity') {
+						obj.style.opacity = iNext / 100;
+						obj.style.filter = 'alpha(opacity=' + iNext + ')';
+					} else {
+						obj.style[sAttr] = iNext + 'px';
+					}
+
+					// 检测当前属性是否真的已经运动完毕
+					if(iNext !== oTarget[sAttr]) {
+						bBtn = false;
+					}
+				}
+
+				if(bBtn) {
+					clearInterval(obj.oTimer);
+					fn && fn();
+				}
+			}, 50);
+		}
+
+		function getStyle(obj, sAttr) {
+			if(obj.currentStyle) {
+				return obj.currentStyle[sAttr];
+			} else {
+				return getComputedStyle(obj, false)[sAttr];
+			}
+		}
+		window.onload = function () {
+			var oBox = document.getElementById('box');
+			/*bufferMove(oBox, {
+				width: 400,
+				height: 600,
+				opacity: 60
+			}, function () {
+				console.log('所有的属性均已运动完毕');
+			});*/
+
+			/*bufferMove(oBox, {width: 400}, function () {
+				bufferMove(oBox, {height: 600}, function () {
+					bufferMove(oBox, {opacity: 40});
+				});
+			});*/
+		}
+	</script>
+</head>
+<body>
+	<div id="box" style="width: 100px;height: 100px; background: red;"></div>
+</body>
+</html>

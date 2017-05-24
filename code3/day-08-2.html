@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>万年历</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#box {
+			margin: 30px auto;
+			width: 600px;
+			line-height: 60px;
+			font-size: 24px;
+			text-align: center;
+		}
+		#box span {
+			display: inline-block;
+			width: 60px;
+			color: #fff;
+			background: #000;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function () {
+			var
+				oBox = document.getElementById('box'),
+				aColor = ['red', 'pink', 'blue', 'green', 'yellow', 'gray', '#669900', 'dark', 'purple'];
+			var
+				oDate  = new Date(),
+				iYear  = oDate.getFullYear(),
+				iMonth = addZero(oDate.getMonth() + 1),
+				iDate  = addZero(oDate.getDate()),
+				iHour  = addZero(oDate.getHours()),
+				iMinute= addZero(oDate.getMinutes()),
+				iSecond= addZero(oDate.getSeconds());
+
+			// 显示日期信息
+			oBox.innerHTML ='<span>' + iYear + '</span>年<span>' + iMonth + '</span>月<span>' + iDate + '</span>日&nbsp;<span>' + iHour + '</span>：<span>' + iMinute + '</span>：<span>' + iSecond + '</span>';
+			setInterval(function () {
+				var
+					oDate  = new Date(),
+					iYear  = oDate.getFullYear(),
+					iMonth = addZero(oDate.getMonth() + 1),
+					iDate  = addZero(oDate.getDate()),
+					iHour  = addZero(oDate.getHours()),
+					iMinute= addZero(oDate.getMinutes()),
+					iSecond= addZero(oDate.getSeconds());
+
+				// 随机取颜色
+				var iKey = Math.floor(Math.random() * aColor.length);
+				// 显示日期信息
+				oBox.innerHTML ='<span>' + iYear + '</span>年<span>' + iMonth + '</span>月<span>' + iDate + '</span>日&nbsp;<span>' + iHour + '</span>：<span>' + iMinute + '</span>：<span style="background:'+ aColor[iKey] +';">' + iSecond + '</span>';
+			}, 1000);
+
+			// 封装一个功能函数（添加前缀0）
+			function addZero(num) {
+				if(num < 10) {
+					return '0' + num;
+				} else {
+					return num;
+				}
+			}
+		};
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>

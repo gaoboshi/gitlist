@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十一天 下午</title>
+	<script type="text/javascript">
+		window.onload = function () {
+			var oBox = document.getElementById('box');
+
+			oBox.onclick = function (ev) {
+				var ev = ev || window.event;
+				var oTaret = ev.srcElement || ev.target;
+				// console.log(String.fromCharCode(ev.keyCode));
+				// console.log(ev.which);
+				// console.log(ev.ctrlKey);
+				// console.log(ev.shiftKey);
+				// console.log(ev.type);
+
+				// console.log(ev.button);
+
+				// console.log(ev.srcElement);
+				// console.log(ev.target);
+			}
+			/*document.oncontextmenu = function (ev) {
+				console.log(ev.button);
+			}*/
+		}
+	</script>
+</head>
+<body>
+	<div id="box" style="width: 100px; height: 100px; background: #ccc;"></div>
+</body>
+</html>

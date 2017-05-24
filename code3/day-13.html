@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十三天 cookie</title>
+	<script type="text/javascript">
+		//写入cookie
+		// document.cookie = 'name=lisi';
+		// document.cookie = 'age=24';
+
+		// 读取cookie
+		// console.log(document.cookie);
+
+		// 修改cookie
+		// document.cookie = 'age=25';
+
+		// 删除cookie
+		// 会话cookie页面关闭以后自动删除
+
+		// 设置过期时间
+		/*var oDate = new Date();
+		oDate.setDate(oDate.getDate() + 7);
+		document.cookie = 'name=zhangsan;expires=' + oDate;*/
+
+		// 设置域名
+		// document.cookie = 'age=28;domain=localhost';
+
+		// 设置路径
+		// document.cookie = 'age=27;path=/';
+
+		// cookie值为中文或者特殊字符的时候
+		document.cookie = 'name=' + encodeURIComponent('=张三;');
+
+		// 读取cookie
+		console.log(decodeURIComponent(document.cookie));
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

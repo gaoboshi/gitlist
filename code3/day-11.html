@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件</title>
+	<script type="text/javascript">
+		window.onload = function () {
+			var oBox = document.getElementById('box');
+			// 鼠标事件
+			/*oBox.onclick = function () {
+				console.log('我单击了Box');
+			}
+
+			oBox.onmousedown = function () {
+				console.log('鼠标摁下');
+			}
+
+			oBox.onmousemove = function () {
+				console.log('鼠标移动');
+			}*/
+			/*oBox.onmouseover = function () {
+				console.log('鼠标进入');
+			}
+			oBox.onmouseout = function () {
+				console.log('鼠标离开');
+			}*/
+			/*oBox.onmouseenter = function () {
+				console.log('鼠标进入');
+			}
+			oBox.onmouseleave = function () {
+				console.log('鼠标离开');
+			}*/
+
+			// 键盘事件
+			/*document.onkeydown = function () {
+				console.log('键盘被摁下');
+			}*/
+			/*document.onkeyup = function () {
+				console.log('键盘被抬起');
+			}*/
+			/*document.onkeypress = function () {
+				console.log('键盘被摁住');
+			}*/
+
+			// 添加多个事件处理程序
+			/*oBox.onclick = function () {
+				alert(1);
+			};
+			oBox.onclick = function () {
+				alert(2);
+			};*/
+
+			function a() {
+				alert(1);
+			}
+			function b() {
+				alert(2);
+			}
+			/*oBox.addEventListener('click', a);
+			oBox.addEventListener('click', function () {
+				alert(2);
+			});
+
+			// 删除事件处理程序
+			oBox.removeEventListener('click', a);*/
+
+			// 低版本的IE浏览器绑定多个事件处理程序
+			/*oBox.attachEvent('onclick', a);
+			oBox.attachEvent('onclick', b);
+
+			// 低版本的IE浏览器删除事件处理程序
+			oBox.detachEvent('onclick', a);*/
+
+
+			/**
+				obj 添加事件的DOM对象
+				type 事件类型 click
+				proceduce 事件处理程序
+			*/
+			/*function addEvent(obj, type, procedure) {
+				if(obj.attachEvent) {
+					obj.attachEvent('on' + type, procedure);
+				} else {
+					obj.addEventListener(type, procedure);
+				}
+			}
+
+			addEvent(oBox, 'click', a);
+			addEvent(oBox, 'click', b);*/
+
+			/*oBox.onclick = function (ev) {
+				var e = ev || window.event;
+				console.log(e);
+			}*/
+
+			// document.onclick = function (ev) {
+				/*console.log(ev.clientX);
+				console.log(ev.clientY);*/
+				/*console.log(ev.pageX);
+				console.log(ev.pageY);*/
+				/*console.log(ev.screenX);
+				console.log(ev.screenY);*/
+			// }
+
+			oBox.onclick = function (ev) {
+				console.log(ev.offsetX);
+				console.log(ev.offsetY);
+			}
+		}
+
+		/*window.onbeforeunload = function () {
+
+		}*/
+
+		/*function a() {
+			alert('被单击了！');
+		}*/
+	</script>
+</head>
+<body style="height: 2000px;">
+	<div id="box" style="width: 100px; height: 100px; background: red;">
+		<div id="inner" style="width: 50px; height: 50px; background: blue;"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>隔行换色</title>
+	<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	ul {
+		list-style: none;
+	}
+	#news li {
+		margin: 0 20px;
+		color: #fff;
+		line-height: 36px;
+		border-bottom: 1px dashed #ccc;
+	}
+	</style>
+	<script type="text/javascript">
+		window.onload = function () {
+			var aLi = document.getElementsByTagName('li');
+			for(var i = 0; i < aLi.length; i++) {
+				aLi[i].style.background = i % 2 === 0 ? 'red': 'blue';
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul id="news">
+		<li>这是第1条新闻</li>
+		<li>这是第2条新闻</li>
+		<li>这是第3条新闻</li>
+		<li>这是第4条新闻</li>
+		<li>这是第5条新闻</li>
+		<li>这是第6条新闻</li>
+		<li>这是第7条新闻</li>
+		<li>这是第8条新闻</li>
+		<li>这是第9条新闻</li>
+		<li>这是第10条新闻</li>
+		<li>这是第11条新闻</li>
+		<li>这是第12条新闻</li>
+		<li>这是第13条新闻</li>
+		<li>这是第14条新闻</li>
+		<li>这是第15条新闻</li>
+		<li>这是第16条新闻</li>
+		<li>这是第17条新闻</li>
+		<li>这是第18条新闻</li>
+		<li>这是第19条新闻</li>
+		<li>这是第20条新闻</li>
+		<li>这是第21条新闻</li>
+		<li>这是第22条新闻</li>
+		<li>这是第23条新闻</li>
+		<li>这是第24条新闻</li>
+		<li>这是第25条新闻</li>
+		<li>这是第26条新闻</li>
+		<li>这是第27条新闻</li>
+		<li>这是第28条新闻</li>
+		<li>这是第29条新闻</li>
+		<li>这是第30条新闻</li>
+	</ul>
+</body>
+</html>

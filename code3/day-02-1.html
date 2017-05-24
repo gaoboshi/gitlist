@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第二天if练习题</title>
+	<script type="text/javascript">
+		window.onload = function () {
+			var
+				oNum = document.getElementById('num'),
+				oBtn = document.getElementById('btn');
+
+			// 给按钮添加click事件
+			oBtn.onclick = function () {
+				var sValue = oNum.value;
+				// 开始做判断
+				if(sValue > 0) {
+					alert('大于0');
+				} else if(sValue < 0) {
+					alert('小于0');
+				} else {
+					alert('等于0');
+				}
+			};
+		};
+	</script>
+</head>
+<body>
+	<input type="text" id="num">
+	<button id="btn">判断大小</button>
+</body>
+</html>
