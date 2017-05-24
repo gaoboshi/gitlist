@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>继承</title>
+	<script type="text/javascript">
+		// ES6继承
+		/*class Animal {
+			run() {
+				console.log('我会跑');
+			}
+		}
+		class Person extends Animal{
+			say() {
+				console.log('我会说话');
+			}
+		}
+		var oXiaoming = new Person();
+
+		oXiaoming.run();*/
+
+		// 查看class类型
+		// console.log(typeof Person);
+
+		// 构造函数继承
+		/*function Person(name, age) {
+			this.name = name;
+			this.age = age;
+		}
+
+		Person.prototype.introduce = function () {
+			console.log('我叫'+this.name+',今年'+this.age);
+		};*/
+
+		//console.dir(Person);
+		//oXiaoming.introduce();
+
+		/*var oXiaoming1 = new Person('小明1', 28);
+		var oXiaoming2 = new Person('小明2', 24);
+		var oXiaoming3 = new Person('小明3', 23);
+		var oXiaoming4 = new Person('小明4', 30);
+		var oXiaoming5 = new Person('小明5', 22);*/
+
+		/*console.log(oXiaoming1);
+		console.log(oXiaoming2);*/
+
+		/*oXiaoming1.introduce();
+		oXiaoming2.introduce();*/
+
+		//console.log(oXiaoming1.introduce === oXiaoming2.introduce);
+
+		// Human构造函数
+		// function Human() {}
+
+		// 关于对象的几个函数
+		// console.log(oXiaoming1 instanceof Human);
+		// console.log(Human.prototype.isPrototypeOf(oXiaoming1));
+		// console.log(oXiaoming1.hasOwnProperty('introduce'));
+		// console.log('introduce' in oXiaoming1);
+
+		// this的几种情况
+		// 第一种情况
+		/*function say() {
+			var sname = '小张';
+			console.log(this.sname);
+		}
+
+		say();*/
+		// 第二种情况
+		/*var oXiaoZhang = {
+			sName : '小刘',
+			say: function () {
+				console.log(this.sName);
+			}
+		};
+
+		oXiaoZhang.say();*/
+
+		// 第三种情况
+		/*var oXiaoMei = {
+			name: '小美',
+			say: function () {
+				console.log(this.name);
+			}
+		};
+		var oXiaoHua = {
+			name: '小花',
+			say: function (age, height) {
+				console.log('我叫'+this.name+',今年'+age+',身高'+height);
+			}
+		};*/
+
+		// oXiaoHua.say.call(oXiaoMei, 27, 208);
+		// oXiaoHua.say.apply(oXiaoMei, [27, 197]);
+
+		// bind
+		/*var fnSay = oXiaoHua.say.bind(oXiaoMei, 23, 184);
+		fnSay();*/
+
+		// call/apply实现继承
+		/*function Human(sex) {
+			this.sex = sex;
+		}
+
+		function Man(name, sex) {
+			this.name = name;
+			Human.apply(this, [sex]);
+		}
+
+		var oJuShiQiangSen = new Man('巨石强森', '男');
+
+		console.log(oJuShiQiangSen);*/
+
+
+		// 原型链
+		/*function Person(name) {
+			this.nickname = name;
+		}*/
+
+		// var oSiTanSen = new Person('杰森斯坦斯');
+		// console.dir(Person);
+		// console.log(oSiTanSen instanceof Object);
+		// console.log(oSiTanSen.hasOwnProperty('toString'));
+		// console.log(Object.prototype.isPrototypeOf(oSiTanSen));
+		//console.log('toString' in oSiTanSen);
+
+		// console.log(oSiTanSen.hasOwnProperty('constructor'));
+
+
+		// 原型链的继承
+		/*function Person() {
+			this.type = '人类';
+		}
+		function Man(name, age) {
+			this.name = name;
+			this.age = age;
+		}
+		Man.prototype = new Person();
+		Man.prototype.constructor = Man;
+
+		var oHaHa = new Man('哈哈', 24);
+
+		console.log(oHaHa.type);*/
+
+		// 混合继承
+		/*function Person(type) {
+			this.type = type;
+		}
+		function Man(name, type) {
+			this.name = name;
+			Person.call(this, type);
+		}
+		Man.prototype.introduce = function () {
+			console.log('我是'+this.type+',我叫'+this.name);
+		}
+
+		var oWuGang = new Man('吴刚', '人类');
+
+		oWuGang.introduce();*/
+		
+	</script>
+</head>
+<body>
+</body>
+</html>

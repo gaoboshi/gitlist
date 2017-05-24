@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹出框-面向过程编程</title>
+	<link rel="stylesheet" href="day-19-1.css">
+	<script type="text/javascript">
+		window.onload = function () {
+			var
+				oBtn1   = document.getElementById('btn1'),
+				oBtn2   = document.getElementById('btn2'),
+				oBtn3   = document.getElementById('btn3'),
+				oTitle  = document.getElementById('title'),
+				oContent= document.getElementById('content'),
+				oPopup  = document.getElementById('popup'),
+				oClose  = document.getElementById('close'),
+				oConfirm = document.getElementById('confirm');
+
+			oBtn1.onclick = function () {
+				oPopup.style.display = 'block';
+				oTitle.innerHTML = '标题1';
+				oContent.innerHTML = '内容1';
+			}
+			oBtn2.onclick = function () {
+				oPopup.style.display = 'block';
+				oTitle.innerHTML = '标题2';
+				oContent.innerHTML = '内容2';
+			}
+			oBtn3.onclick = function () {
+				oPopup.style.display = 'block';
+				oTitle.innerHTML = '标题3';
+				oContent.innerHTML = '内容3';
+			}
+			oClose.onclick = function () {
+				oPopup.style.display = 'none';
+			}
+			oConfirm.onclick = function () {
+				oPopup.style.display = 'none';
+			}
+		}
+	</script>
+</head>
+<body>
+	<button id="btn1">弹出1</button>
+	<button id="btn2">弹出2</button>
+	<button id="btn3">弹出3</button>
+	<div id="popup">
+		<h3><a href="javascript:;" id="close">&times;</a><span id="title">这是个标题</span></h3>
+		<div id="content">这是一段内容</div>
+		<a href="javascript:;" id='confirm'>确定</a>
+	</div>
+</body>
+</html>

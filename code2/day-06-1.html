@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>排序算法</title>
+	<script type="text/javascript">
+		// var aArray = [13, 24, 1, 4, 9, 10];
+
+		// 冒泡排序的函数
+		// 第1次第1步排序：[13, 24, 1, 4, 9, 10]
+		// 第1次第2步排序：[13, 1, 24, 4, 9, 10]
+		// 第1次第3步排序：[13, 1, 4, 24, 9, 10]
+		// 第1次第4步排序：[13, 1, 4, 9, 24, 10]
+		// 第1次第5步排序：[13, 1, 4, 9, 10, 24]
+
+		// 第2次第1步排序：[1, 13, 4, 9, 10, 24]
+		// 第2次第2步排序：[1, 4, 13, 9, 10, 24]
+		// 第2次第3步排序：[1, 4, 9, 13, 10, 24]
+		// 第2次第4步排序：[1, 4, 9, 10, 13, 24]
+
+		// 第3次第1步排序：[1, 4, 9, 10, 13, 24]
+		// 第3次第2步排序：[1, 4, 9, 10, 13, 24]
+		// 第3次第3步排序：[1, 4, 9, 10, 13, 24]
+
+		// 第4次第1步排序：[1, 4, 9, 10, 13, 24]
+		// 第4次第2步排序：[1, 4, 9, 10, 13, 24]
+
+		// 第5次第1步排序：[1, 4, 9, 10, 13, 24]
+		/*function bubbleSort(arr) {
+			// 确定执行的次数
+			for(var i = 1; i < arr.length; i++) {
+				// 确定执行的步骤
+				for(var j = 0; j < arr.length - i; j++) {
+					// 如果前一个数值大于后一个，则发生位置交换
+					if(arr[j] > arr[j + 1]){
+						var iTemp = arr[j];
+						arr[j] = arr[j + 1];
+						arr[j + 1] = iTemp;
+					}
+				}
+			}
+			return arr;
+		}
+		console.log(bubbleSort(aArray));*/
+
+		// 选择排序
+		/*function selectionSort(arr) {
+			// 确定执行的次数
+			for(var i = 0; i < arr.length - 1; i++) {
+				// 假设第i个是最小的
+				var iMinKey = i;
+				for(var j = i + 1; j < arr.length; j++) {
+					// 寻找最小值的key
+					if(arr[j] < arr[iMinKey]) {
+						iMinKey = j;
+					}
+				}
+
+				// 做数值交换
+				if(iMinKey !== i) {
+
+					var iTemp = arr[iMinKey];
+					arr[iMinKey] = arr[i];
+					arr[i] = iTemp;
+				}
+			}
+			return arr;
+		}
+		console.log(selectionSort(aArray));*/
+
+		// 插入排序
+		// var aArray = [13, 24, 1, 14, 29, 10];
+		// 1.1 [13, 24, 1, 14, 29, 10]
+
+		// 2.1 [13, 1, 24, 14, 29, 10]
+		// 2.2 [1, 13, 24, 14, 29, 10]
+
+		// 3.1 [1, 13, 14, 24, 29, 10]
+		// 3.2 [1, 13, 14, 24, 29, 10]
+
+		// 4.1 [1, 13, 14, 24, 29, 10]
+
+		// 5.1 [1, 13, 14, 24, 10, 29]
+		// 5.2 [1, 13, 14, 10, 24, 29]
+		// 5.3 [1, 13, 10, 14, 24, 29]
+		// 5.4 [1, 10, 13, 14, 24, 29]
+		// 5.5 [1, 10, 13, 14, 24, 29]
+
+		/*function insertSort(arr) {
+			for(var i = 1; i < arr.length; i++) {
+				for(var j = i; j > 0; j--) {
+					// 如果当前值小于前面的值，则发生位置交换
+					if(arr[j] <arr[j - 1]) {
+						var iTemp = arr[j];
+						arr[j] = arr[j - 1];
+						arr[j - 1] = iTemp;
+					}
+				}
+			}
+			return arr;
+		}
+		console.log(insertSort(aArray));*/
+
+		// 快速排序
+		var aArray = [113, 24, 8, 17, 6, 31];
+
+		// 第一次 基准元素：13 结果：[1, 10] 13 [24, 14, 29]
+		// 第二次 基准元素：1  结果：[] 1 [10] 13 [24, 14, 29]
+		// 第三次 基准元素：24 结果：[] [1] [10] [13] [14] [24] [29]
+
+		/*function quickSort(arr) {
+			// 如果数组内容长度小于等于1的话，则直接返回出去
+			if(arr.length <= 1) {
+				return arr;
+			}
+			var
+				iBase = arr.shift(),
+				aLeft = [],
+				aRight= [];
+			for(var i = 0; i < arr.length; i++) {
+				if(arr[i] < iBase) {
+					aLeft.push(arr[i]);
+				} else {
+					aRight.push(arr[i]);
+				}
+			}
+
+			return quickSort(aLeft).concat([iBase], quickSort(aRight));
+		}
+
+		console.log(quickSort(aArray));*/
+
+		// 值传递
+		/*var sStr = '郑州H5-1701班';
+		function modify(a) {
+			a = a + '!!!';
+			console.log(a);
+		}
+		modify(sStr);
+		console.log(sStr);*/
+
+		// 址传递
+		var aArray = ['唐玄奘', '孙悟空', '猪八戒', '沙和尚'];
+
+		function modify(a) {
+			a.push('白龙马');
+			console.log(a);
+		}
+		modify(aArray);
+		console.log(aArray);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,46 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: 'Microsoft Yahei';
+	font-size: 12px;
+}
+a{
+	text-decoration: none;
+}
+#popup{
+	position: fixed;
+	top: 30%;
+	left: 50%;
+	display: none;
+	margin-left: -151px;
+	width: 300px;
+	border: 1px solid #ccc;
+	box-shadow: 0 0 8px #ccc;
+}
+#popup h3 {
+	font-size: 14px;
+	padding: 6px 4px;
+	border-bottom: 1px solid #ccc;
+}
+#close {
+	float: right;
+	color: #000;
+}
+#content {
+	padding: 10px 4px;
+	border-bottom: 1px solid #ccc;
+}
+#confirm{
+	display: block;
+	margin: 10px auto;
+	width: 60px;
+	line-height: 24px;
+	text-align: center;
+	color: #fff;
+	background: red;
+}
+#confirm:active{
+	background: green;
+}

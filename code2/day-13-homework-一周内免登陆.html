@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>一周内免登陆</title>
+	<script type="text/javascript">
+		window.onload = function () {
+			var
+				oForm = document.login,
+				oUsername = oForm.username,
+				oPassword = oForm.password;
+
+			oForm.onsubmit = function () {
+				var
+					sUsername = oUsername.value,
+					sPassword = oPassword.value;
+
+				// 创建cookie
+				var oDate = new Date();
+				oDate.setDate(oDate.getDate() + 7);
+				document.cookie = 'username='+encodeURIComponent(sUsername)+';expires=' + oDate;
+				document.cookie = 'password='+encodeURIComponent(sPassword)+';expires=' + oDate;
+			}
+		}
+	</script>
+</head>
+<body>
+	<form action="javascript:;" name="login">
+		帐号：<input type="text" name="username">
+		<br>
+		密码：<input type="password" name="password">
+		<br>
+		<input type="submit" value="提交">
+	</form>
+</body>
+</html>

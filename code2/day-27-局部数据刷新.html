@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>评论列表</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		ul {
+			list-style: none;
+		}
+		#title{
+			line-height: 60px;
+			text-align: center;
+		}
+		#comment li {
+			padding: 10px 0;
+			border-top: 1px dashed red;
+		}
+		#comment .username {
+			float: left;
+			width: 60px;
+			color: red;
+			text-align: right;
+		}
+		#comment .content {
+			margin-left: 70px;
+		}
+		#comment .date{
+			margin-left: 70px;
+			color: gray;
+		}
+		#pagination {
+			padding-top: 10px;
+			text-align: center;
+			border-top: 1px dashed red;
+		}
+		#pagination a{
+			border: 1px solid #ccc;
+			padding: 2px 6px;
+			color: #000;
+			text-decoration: none;
+		}
+		#pagination .active {
+			background: blue;
+			color: #fff;
+		}
+	</style>
+	<script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.8.3/jquery.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			// 默认获取第一页的数据
+			$.get('comment.php', {
+				page: 1
+			}, function (data) {
+				data.forEach(function (v) {
+						$('#comment').append($('<li></li>').html(`<div class="username">${v.username}</div>
+			<div class="content">${v.content}</div>
+			<div class="date">${v.date}</div>`));
+				});
+			}, 'json');
+
+			// 分页效果
+			$('#pagination a').click(function () {
+				$.get('comment.php', {
+					page: $(this).data('page')
+				}, function (data) {
+					$('#comment').empty();
+					data.forEach(function (v) {
+							$('#comment').append($('<li></li>').html(`<div class="username">${v.username}</div>
+				<div class="content">${v.content}</div>
+				<div class="date">${v.date}</div>`));
+					});
+
+					// 改变class
+					$(this).addClass('active').siblings().removeClass('active');
+				}.bind(this), 'json');
+			});
+		});
+	</script>
+</head>
+<body>
+	<h2 id="title">评论列表</h2>
+	<ul id="comment"></ul>
+	<div id="pagination">
+		<a href="javascript:;" class="active" data-page="1">1</a>
+		<a href="javascript:;" data-page="2">2</a>
+		<a href="javascript:;" data-page="3">3</a>
+	</div>
+</body>
+</html>

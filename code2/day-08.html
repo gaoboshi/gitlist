@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第八天 Math对象</title>
+	<script type="text/javascript">
+		// Math对象
+		// console.log(Math.PI);
+		// 方法
+		/*console.log(Math.round(3.9));
+		console.log(Math.round(3.1));
+		console.log(Math.random());
+		console.log(Math.max(1, 4, 7, 8));
+		console.log(Math.min(1, 4, 7, 8));
+		console.log(Math.abs(-1));
+		console.log(Math.ceil(3.1));
+		console.log(Math.floor(3.9));
+		console.log(Math.pow(4, 3));
+		console.log(Math.sqrt(16));
+		console.log(Math.sqrt(16));*/
+
+		// 计算弧度
+		// 正弦
+		/*var iRad = 30 * Math.PI / 180;
+		console.log(Math.ceil(Math.sin(iRad)*10)/10);
+*/
+		// 余弦
+		// var iRad = 60 * Math.PI / 180;多少
+		// console.log(Math.floor(Math.cos(iRad)*10)/10);
+
+		// 已知一个直角边为3，另一个直角边未4，则斜边为多少
+		/*var iNum = Math.sqrt(Math.pow(3, 2) + Math.pow(4, 2));
+		console.log(iNum);*/
+
+
+
+		// 十进制转换成十六进制
+		// 24转换成十六进制的值是多少 18
+		/*
+			2446 / 16 152 ... 14
+			152  / 16 9   ... 8
+
+			98E
+		*/
+		/*console.log((2446).toString(16));
+		console.log((2446).toString(8));*/
+
+
+
+		window.onload = function() {
+			// 获取随机十六进制的颜色字符串
+			function randomColor(){
+				var sStr = '#';
+				for(var i = 0; i < 6; i++) {
+					var iNum = Math.floor(Math.random()*16);
+					var iHex = iNum.toString(16);
+					sStr += iHex;
+				}
+				return sStr.toUpperCase();
+			}
+			var sBodyBgColor = randomColor();
+
+
+			// 将颜色赋值给body的背景
+			document.body.style.backgroundColor = sBodyBgColor;
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

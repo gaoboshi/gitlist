@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery</title>
+	<script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.8.3/jquery.js"></script>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#box {
+			position: relative;
+			top: 30px;
+			left: 30px;
+			margin-top: 20px;
+			margin-left: 20px;
+		}
+		#parent {
+			/* position: absolute;
+			top: 30px;
+			left: 30px; */
+			margin-top: 20px;
+			margin-left: 20px;
+			padding: 10px;
+		}
+		#son {
+			width: 100px;
+			height: 100px;
+			background: #ccc;
+		}
+
+		#first {
+			margin: 20px;
+			padding: 10px;
+			border: 1px solid #ccc;
+			width: 100px;
+			height: 100px;
+		}
+	</style>
+	<script type="text/javascript">
+		/*window.onload = function () {
+			
+		}*/
+		/*$(document).ready(function () {
+			$('#list li').css('borderBottom', '1px solid #ccc');
+		});*/
+
+		// 事件
+		$(function () {
+			/*$('#list li').on('click mouseover', function () {
+				$(this).css('background', 'red');
+			});*/
+			/*$('#list').on('click', 'li', function () {
+				$(this).css('background', 'red');
+			});*/
+			/*$('#list').on('click', function () {
+				console.log('触发click事件');
+			});
+			$('#list').on('mouseover', function () {
+				console.log('触发mouseover事件');
+			});
+			$('#list').on('mouseout', function () {
+				console.log('触发mouseout事件');
+			});
+
+			$('#list').off();*/
+
+			/*$('#list').bind('click', function () {
+				console.log('触发click事件');
+			});
+			$('#list').bind('mouseover', function () {
+				console.log('触发mouseover事件');
+			});
+			$('#list').bind('mouseout', function () {
+				console.log('触发mouseout事件');
+			});
+			$('#list').unbind();*/
+
+			/*$('#list').one('click', function () {
+				console.log('触发click事件，只触发了一次！');
+			});*/
+			/*$('#first').hover(function () {
+				console.log('鼠标移入');
+			}, function () {
+				console.log('鼠标移出');
+			});*/
+
+			$('#first').mousedown(function () {
+				console.log('鼠标摁下');
+			});
+		});
+	</script>
+</head>
+<body style="height: 1000px;">
+	<button id="btn">点击</button>
+	<div id="box">
+		<div id="parent">
+			<div id="son"></div>
+		</div>
+	</div>
+
+
+	<div id="first"></div>
+
+	<ul id="list" class="active">
+		<li>这是第1个LI</li>
+		<li>这是第2个LI</li>
+		<li class="hover">这是第3个LI</li>
+		<li><span></span>这是第4个LI</li>
+		<li>这是第5个LI</li>
+		<li class="hover">这是第6个LI</li>
+		<div>div</div>
+		<p>p</p>
+	</ul>
+	<script type="text/javascript">
+		// console.log($('#son').offset({left:50, top:50}));
+		// console.log($('#son').position());
+
+		/*$(function () {
+			$('#btn').click(function () {
+				$(window).scrollTop(400);
+			});
+		});*/
+		//console.log($(window).scrollLeft());
+
+		// 操作尺寸
+		/*console.log($('#first').width());
+		console.log($('#first').height());*/
+		/*console.log($('#first').innerWidth());
+		console.log($('#first').innerHeight());*/
+		/*console.log($('#first').outerWidth());
+		console.log($('#first').outerHeight());*/
+		/*console.log($('#first').outerWidth(true));
+		console.log($('#first').outerHeight(true));*/
+
+		// 过滤查找
+		// console.log($('#list li').eq(2));
+		/*console.log($('#list li').first());
+		console.log($('#list li').last());*/
+		// console.log($('#list').hasClass('active'));
+
+		// console.log($('#list li').has('span'));
+		// console.log($('#list li').not('.hover'));
+
+		// console.log($('#list').children('.hover'));
+		// console.log($('#list').find('span'));
+		// console.log($('#son').parent());
+		// console.log($('#son').offsetParent());
+		// console.log($('#list li:eq(2)').next());
+		// console.log($('#list li:eq(2)').nextAll());
+		// console.log($('#list li:eq(2)').prev());
+		// console.log($('#list li:eq(2)').prevAll());
+		// console.log($('#list li:eq(2)').siblings());
+
+		// console.log($('li:eq(2)').add('li:eq(1)'));
+
+		// console.log($('#list').children().andSelf());
+
+		//console.log($('#list').children().end());
+	</script>
+</body>
+</html>

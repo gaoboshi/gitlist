@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>输出星星</title>
+	<script type="text/javascript">
+		// 打印四方形星星
+		for(var i = 0; i < 4; i++) {
+			for(var j = 0; j < 10; j++) {
+				document.write('*');
+			}
+			document.write('<br>');
+		}
+		document.write('-----------------------<br/>');
+		// 打印左侧直角三角形
+		for(var i = 0; i < 5; i++) {
+			for(var j = 0; j <= i; j++) {
+				document.write('*');
+			}
+			document.write('<br>');
+		}
+		document.write('-----------------------<br/>');
+
+		// 打印右侧直角三角形
+		for(var i = 1; i <= 5; i++) {
+			// 输出空格
+			for(var j = 0; j < 5 - i; j++) {
+				document.write('&ensp;');
+			}
+			// 输出星星
+			for(var m = 0; m < i; m++) {
+				document.write('*');
+			}
+			document.write('<br>');
+		}
+
+		document.write('-----------------------<br/>');
+
+		// 打印菱形
+		// 行数 5 列数 5
+		// i值的变化：1、2、3、2、1
+		// 第1行 空格 (5 - 1) /2 星星 i * 2 -1
+		// 第2行 空格 (5 - 3) /2 星星 i * 2 -1
+		// 第3行 空格 (5 - 5) /2 星星 i * 2 -1
+		// 第4行 空格 (5 - 3) /2 星星 i * 2 -1
+		// 第5行 空格 (5 - 1) /2 星星 i * 2 -1
+		var j = 0;
+		for(var i = 1; i <= 5; i++) {
+			if(i > 3) {
+				j--;
+			} else {
+				j++;
+			}
+			var n = j * 2 - 1;
+			// 输出空格
+			for(var m = 0; m < (5 - n) / 2; m++) {
+				document.write('&ensp;');
+			}
+			// 输出星星
+			for(var x = 0; x < n; x++) {
+				document.write('*');
+			}
+			document.write('<br>');
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

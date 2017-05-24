@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>promise</title>
+	<script type="text/javascript">
+		var bBtn = true;
+		// promise
+		/*var oPormise = new Promise(function (resolve, reject) {
+			if(bBtn) {
+				resolve(123);
+			} else {
+				reject();
+			}
+		});
+
+		oPormise.then(function (data) {
+			console.log(data);
+		}).then(function () {
+			console.log('第二次成功！');
+		}).catch(function () {
+			console.log('失败');
+		});*/
+
+		// catch语法相当于：then(null, function() {});
+
+		// 多个promise
+		/*var oPromise = new Promise(function (resolve, reject) {
+			resolve();
+		});
+		oPromise.then(function () {
+			console.log('第一个Promise状态变成成功');
+
+			var oSecondPromise = new Promise(function (resolve, reject) {
+				reject();
+			});
+
+			return oSecondPromise;
+		}, function () {
+			console.log('第一个Promise状态变成失败');
+		}).then(function () {
+			console.log('第二个Promise状态变成成功');	
+		}, function () {
+			console.log('第二个Promise状态变成失败');
+			var oThirdPromise = new Promise(function (resolve, reject) {
+				resolve();
+			});
+			return oThirdPromise;
+		}).then(function () {
+			console.log('第三个成功');
+		}, function () {
+			console.log('第三个失败');
+		});*/
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

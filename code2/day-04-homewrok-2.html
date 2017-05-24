@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>课堂案例</title>
+	<script type="text/javascript">
+		window.onload = function () {
+			var oContent = $('content'), oBtn = $('btn');
+
+			oBtn.onclick = function () {
+				var iContent = Number(oContent.value);
+				console.log(crypt(iContent));
+			}
+
+			function crypt(num) {
+				var
+					iFirst   = parseInt(num / 1000),
+					iSecond  = parseInt((num - iFirst * 1000)/ 100),
+					iThird   = parseInt((num - iFirst * 1000 - iSecond * 100)/ 10),
+					iFourth  = num - iFirst * 1000 - iSecond * 100 - iThird * 10;
+
+				// 加密
+
+				// 第一道工序
+				iFirst  += 5;
+				iSecond += 5;
+				iThird  += 5;
+				iFourth += 5;
+
+				// 第二道工序
+				iFirst  %= 10;
+				iSecond %= 10;
+				iThird  %= 10;
+				iFourth %= 10;
+
+				// 第三道工序
+				var sCrypt = '' + iFourth + iThird + iSecond + iFirst;
+
+				return sCrypt;
+			}
+			// 通过ID获取DOM节点对象
+			function $(id) {
+				return document.getElementById(id);
+			}
+		};
+	</script>
+</head>
+<body>
+	<input type="text" id="content"><button id="btn">加密</button>
+</body>
+</html>

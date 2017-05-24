@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>百度跨域</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		ul {
+			list-style: none;
+		}
+		form[name=search-box] {
+			margin: 30px auto;
+			width: 400px;
+		}
+		input[name=search-content] {
+			box-sizing: border-box;
+			width: 300px;
+			height: 36px;
+			border: 1px solid #ccc;
+			vertical-align: bottom;
+		}
+		input[type=submit] {
+			box-sizing: border-box;
+			width: 100px;
+			height: 36px;
+			border:0;
+			background: blue;
+			color: #fff;
+		}
+		#list li{
+			line-height: 30px;
+			border-bottom: 1px dashed #ccc;
+		}
+	</style>
+	<script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.8.3/jquery.js"></script>
+	<script>
+		$(function () {
+			$('[name=search-content]').bind('input', function () {
+				$.ajax({
+					url: 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?json=1&wd='+$(this).val(),
+					dataType: 'jsonp',
+					jsonp: 'cb',
+					success: function(data) {
+						$('#list').empty();
+						data.s.forEach(function (v) {
+							$('#list').append('<li>'+v+'</li>');
+						});
+					}
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<form action="javascript:;" name="search-box">
+		<input type="text" name="search-content"><input type="submit" value="百度一下">
+		<ul id="list"></ul>
+	</form>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>跟随鼠标划入特效</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		ul {
+			list-style: none;
+		}
+		#list {
+			margin: 100px;
+		}
+		#list li{
+			position: relative;
+			width: 230px;
+			height: 230px;
+			overflow: hidden;
+		}
+		#list li img{
+			width: 100%;
+			height: 100%;
+			transition: .5s;
+		}
+		#list li:hover img{
+			transform: scale(1.2);
+		}
+		#list li div{
+			position: absolute;
+			top: 0;
+			left: 230px;
+			width: 150px;
+			height: 110px;
+			padding: 60px 40px;
+			background: rgba(255, 255, 255, .6);
+		}
+	</style>
+	<script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.8.3/jquery.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			$("#list li").bind("mouseenter mouseleave",function(e) {
+				var w = $(this).width();
+				var h = $(this).height();
+				var x = (e.pageX - this.offsetLeft - (w / 2)) * (w > h ? (h / w) : 1);
+				var y = (e.pageY - this.offsetTop - (h / 2)) * (h > w ? (w / h) : 1);
+				var direction = Math.round((((Math.atan2(y, x) * (180 / Math.PI)) + 180) / 90) + 3) % 4; //direction的值为“0,1,2,3”分别对应着“上，右，下，左”
+				var eventType = e.type;
+
+				var oDiv = $(this).children('div');
+				
+
+				if(eventType === 'mouseenter') {
+					switch(direction) {
+						case 0:
+							oDiv.css({left:0, top: -230});
+							break;
+						case 1:
+							oDiv.css({left:230, top: 0});
+							break;
+						case 2:
+							oDiv.css({left:0, top: 230});
+							break;
+						case 3:
+							oDiv.css({left:-230, top: 0});
+							break;
+					}
+
+					oDiv.animate({
+						left:0,
+						top: 0
+					}, 100);
+				} else {
+					switch(direction) {
+						case 0:
+							var oTarget = {left:0, top: -230};
+							break;
+						case 1:
+							var oTarget = {left:230, top: 0};
+							break;
+						case 2:
+							var oTarget = {left:0, top: 230};
+							break;
+						case 3:
+							var oTarget = {left:-230, top: 0};
+							break;
+					}
+
+					oDiv.animate(oTarget, 100);
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<ul id="list">
+		<li>
+			<img src="images/1.png">
+			<div>
+				站酷网 | 中国最具人气的设计师互动平台<br/>国内最活跃的原创设计交流平台
+			</div>
+		</li>
+	</ul>
+</body>
+</html>

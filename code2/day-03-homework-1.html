@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第三天的下午练习</title>
+	<script type="text/javascript">
+		// 求阶乘的和
+		/*var iRet = 0;
+		for(var i = 1; i<= 20; i++) {
+			// 阶乘规律：1 * 2 * 3 * 4 * 5...*20
+			var iTemp = 1;
+			for(var j = 1; j <= i; j++) {
+				iTemp = iTemp * j;
+			}
+			iRet += iTemp;
+			console.log(i + '的阶乘：'+iTemp);
+		}
+		console.log('总数为：'+ iRet);*/
+
+		// 打印一个等腰三角形
+		/*eq(7);
+
+		function eq(iTotal) {
+			// 总列数
+			var iRowTotal = iTotal * 2 - 1;
+			for(var i = 1; i <= iTotal; i++) {
+				// 计算星星的数量
+				var iStarNum = 2 * i - 1;
+				// 输出空格
+				for(var j = 0; j < (iRowTotal - iStarNum)/ 2; j++) {
+					document.write('&ensp;');
+				}
+
+				// 输出星星
+				for(var m = 0; m < iStarNum; m++) {
+					document.write('♥');
+				}
+				document.write('<br>');
+			}
+		}*/
+
+		// 使用函数完成任意数字的阶乘的计算
+		/*var iRet = factorial(6);
+		console.log(iRet);
+		function factorial(num) {
+			var iRet = 1;
+			for(var i = 1; i<= num; i++) {
+				iRet *= i;
+			}
+			return iRet;
+		}*/
+
+		// 篮球经过几次碰撞，高度小于等于0.1
+		/*var
+			iTimes  = 0,
+			iHeight = 5;
+
+		while(iHeight > 1) {
+			iTimes++;
+			iHeight *= 0.3;
+		}
+		console.log(iTimes);*/
+
+		// 算芝麻重量
+		var iTotal = 1;
+		for(var i = 1; i< 64; i++) {
+			var iTemp = 1;
+			for(var j = 0; j < i; j++) {
+				iTemp *= 2;
+			}
+			iTotal += iTemp;
+		}
+		console.log('总重：' + iTotal/100000 + '千克');
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

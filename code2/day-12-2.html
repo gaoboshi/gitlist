@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽</title>
+	<script type="text/javascript">
+		window.onload = function () {
+			var
+				oBox = document.getElementById('box'),
+				iWinW = document.documentElement.clientWidth,
+				iWinH = document.documentElement.clientHeight;
+
+			oBox.onmousedown = function (ev) {
+				var
+					ev = ev || window.event,
+					iX = ev.clientX - oBox.offsetLeft,
+					iY = ev.clientY - oBox.offsetTop;
+
+				// 生成一个遮罩层
+				if(oBox.setCapture) {
+					oBox.setCapture();
+				}
+				document.onmousemove = function (ev) {
+					var
+						ev = ev || window.event,
+						iL = ev.clientX - iX,
+						iT = ev.clientY - iY,
+						iScrollT = document.documentElement.scrollTop || document.body.scrollTop;
+
+					// 限定拖拽的范围
+					// 左侧
+					if(iL < 0) {
+						iL = 0;
+					}
+					// 上侧
+					if(iT < 0) {
+						iT = 0;
+					}
+					// 右侧
+					if(iL > iWinW - oBox.offsetWidth) {
+						iL = iWinW - oBox.offsetWidth;
+					}
+
+					// 下侧
+					if(iT > iWinH - oBox.offsetHeight + iScrollT) {
+						iT = iWinH - oBox.offsetHeight + iScrollT;
+					}
+					// 设置结果值
+					oBox.style.left = iL + 'px';
+					oBox.style.top  = iT + 'px';
+				}
+				document.onmouseup = function () {
+					// 清除事件
+					document.onmousemove = null;
+					document.onmouseup = null;
+
+					// 删除遮罩层
+					if(oBox.releaseCapture) {
+						oBox.releaseCapture();
+					}
+				}
+				// 阻止浏览器的默认行为
+				return false;
+			}
+		}
+	</script>
+</head>
+<body style="height: 2000px;">中新网3月27日电 据韩联社报道，韩国检方特别调查本部27日表示，检方决定针对韩国前总统朴槿惠提请法院签发逮捕证。
+
+由此，朴槿惠将成为继前总统卢泰愚、全斗焕后又一名被检方提请批捕的韩国前总统。
+
+报道称，朴槿惠被检方指控的嫌疑多达13项，包括受贿罪、滥用职权罪等。虽然朴槿惠一直否认所有指控，但检方认为，本案情节严重，若朴槿惠的罪名成立，被判处重刑在所难免，因此决定提请批捕。
+	<div id="box" style="width: 100px; height: 100px; background: red; position: absolute;"></div>
+</body>
+</html>

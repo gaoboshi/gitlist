@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>广告自动关闭</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		html,body {
+			height: 100%;
+			overflow: hidden;
+		}
+		#ad {
+			margin: 10% auto;
+			width: 90%;
+			height: 80%;
+			background: gold;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function () {
+			var ad = document.getElementById('ad');
+			var iTime = 5;
+
+			var oTimer = setInterval(function () {
+				iTime--;
+				if(iTime === 0) {
+					ad.style.display = 'none';
+					clearInterval(oTimer);
+				}
+			}, 1000);
+		}
+	</script>
+</head>
+<body>
+	<div id="ad">广告招商---黄金铺位</div>
+</body>
+</html>

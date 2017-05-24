@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>判断变量是否为NaN和判断数值奇偶</title>
+	<script type="text/javascript">
+		window.onload = function () {
+			var
+				oNum = document.getElementById('num'),
+				oBtn = document.getElementById('btn');
+
+			// isNaN(value) // true, false
+			// 给Button添加事件
+			oBtn.onclick = function () {
+				var sValue = oNum.value;
+
+				// 判断用户输入的内容是否为数值
+				if(!isNaN(Number(sValue))) {
+					//判断奇偶
+					if(sValue % 2 === 0) {
+						alert('该数值为偶数');
+					} else {
+						alert('该数值为奇数');
+					}
+				} else {
+					alert('您输入的内容有误，应该输入数值！');
+				}
+			};
+		};
+	</script>
+</head>
+<body>
+	请输入数值：<input type="text" id="num"><button id="btn">判断奇偶</button>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>计算某一年是否为闰年</title>
+	<script type="text/javascript">
+		window.onload = function () {
+			var
+				oYear = document.getElementById('year'),
+				oBtn  = document.getElementById('btn');
+
+			// 给按钮添加click事件
+			oBtn.onclick = function () {
+				var sYear = oYear.value;
+
+				if(!isNaN(Number(sYear))) {
+					// 判断是否为闰年
+					if(sYear % 4 === 0 && sYear % 100 !== 0) {
+						alert('该年份是闰年！');
+					} else {
+						alert('该年份是平年！');
+					}
+				} else {
+					alert('请输入有效的年份！');
+				}
+			};
+		}
+	</script>
+</head>
+<body>
+	年份：<input type="text" id="year"><button id="btn">判断</button>
+</body>
+</html>

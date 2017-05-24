@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>加速减速</title>
+	<script type="text/javascript" src="common.js"></script>
+	<script type="text/javascript">
+		window.onload = function () {
+			var
+				oStart = $('start'),
+				oRed = $('red'),
+				oTimer = null,
+				iSpeed = 50;
+			oStart.onclick = function () {
+				clearInterval(oTimer);
+
+				oTimer = setInterval(function () {
+					oRed.style.left = oRed.offsetLeft + iSpeed + 'px';
+					iSpeed -= 2;
+				}, 50);
+			}
+		}
+	</script>
+</head>
+<body>
+	<button id="start">开始</button>
+	<div id="red" style="position: absolute;width: 100px;height: 100px; background: red;top: 100px;"></div>
+</body>
+</html>

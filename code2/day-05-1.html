@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第五天对象</title>
+	<script type="text/javascript">
+		// 创建对象
+		// 构造函数的方式
+		/*function Person() {}
+		var oZhangSan = new Person();
+
+		console.log(oZhangSan);*/
+
+		// 第二种通过Object构造函数的方式
+		/*var oXiaoMing = new Object();
+
+		console.log(oXiaoMing);*/
+
+		// 第三种简写（语法糖）的方式
+		// var oHanMei = {};
+
+		// 往对象中添加属性和方法
+		/*var oHanMei = {};
+		oHanMei.name = '韩梅';
+		oHanMei.cry = function () {
+			console.log('我会哭了！~~~~');
+		};
+
+		console.log(oHanMei);*/
+
+		var oHanMei = {
+			age: 0,
+			sex: '女',
+			cry: function () {
+				console.log('我会哭了！~~~');
+			}
+		};
+
+		console.log(oHanMei.sex);
+		oHanMei.cry();
+		console.log(oHanMei.age);
+		// 一年以后
+		oHanMei.age = 1;
+		console.log(oHanMei.age);
+
+		// 删除哭
+		delete oHanMei.cry;
+
+		// oHanMei.cry();
+
+		// 清空对象
+		oHanMei = {};
+		// 销毁对象
+		// oHanMei = null;
+
+		console.log(oHanMei);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

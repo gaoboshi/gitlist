@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AJAX</title>
+	<script type="text/javascript">
+		// 创建xhr对象
+		if(window.ActiveXObject) {
+			var oXhr = new ActiveXObject('Microsoft.XMLHTTP');
+		} else {
+			var oXhr = new XMLHttpRequest();
+		}
+
+		// open方法
+		// get请求，将发送数据追加到URL地址的?后面
+		// post请求
+		oXhr.open('post', 'http://localhost/news.php');
+
+		oXhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		// 发送请求
+		var sStr = 'account=admin888&password=admin777';
+		oXhr.send(sStr);
+
+		// 等待接收
+		oXhr.onreadystatechange = function () {
+			if(oXhr.readyState === 4 && oXhr.status === 200) {
+				console.log(oXhr.statusText);
+				// console.log(oXhr.responseText);
+				/*var aNews = JSON.parse(oXhr.responseText);
+				
+				var oList = document.getElementById('list');
+
+				aNews.forEach(function (v) {
+					var oLi = document.createElement('li');
+					oLi.innerHTML = v.title;
+					oList.appendChild(oLi);
+				});*/
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul id="list">
+	</ul>
+</body>
+</html>

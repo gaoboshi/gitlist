@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>输入成绩分数判断等级</title>
+	<script type="text/javascript">
+		window.onload = function () {
+			var
+				oScore = document.getElementById('score'),
+				oBtn   = document.getElementById('btn');
+
+			// 添加事件
+			oBtn.onclick = function () {
+				var iScore = Number(oScore.value);
+
+				if(oScore.value === '' || isNaN(iScore)) {
+					alert('请输入有效的成绩！');
+				} else {
+					if(iScore >= 0 && iScore < 60) {
+						alert('成绩不及格，请君多多努力！');
+					} else if(iScore >= 60 && iScore < 90) {
+						alert('成绩良好，再接再厉！');
+					} else if(iScore >= 90 && iScore <= 100) {
+						alert('成绩优秀，继续保持！');
+					} else {
+						alert('输入成绩非法！');
+					}
+				}
+			};
+		};
+	</script>
+</head>
+<body>
+	分数：<input type="text" id="score"><button id="btn">判定</button>
+</body>
+</html>

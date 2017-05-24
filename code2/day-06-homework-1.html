@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第六天下午课后案例</title>
+	<script type="text/javascript">
+		// 编写一个函数，将数组中的每一个内容增加30%
+		/*function increment(arr) {
+			for(var i = 0; i < arr.length; i++) {
+				arr[i] = arr[i] * 13 / 10;
+			}
+			return arr;
+		}
+
+		console.log(increment([1, 2, 4, 6]));*/
+
+		// 使用forEach
+		/*var aArr = [1,2, 3, 4];
+		aArr.forEach(function (v, k, arr) {
+			arr[k] = v * 13 / 10;
+		});
+		console.log(aArr);*/
+
+		// 编写一个函数判断一个数组中是否含有另外一个元素
+		/*function has(arr, iNum) {
+			for(var i = 0; i < arr.length; i++) {
+				if(arr[i] === iNum) {
+					return true;
+				}
+			}
+			return false;
+		}*/
+		//console.log(has([1,4,7], 8));
+
+		// 使用some
+		/*var aSome = [1, 4, 7];
+		var bBool = aSome.some(function (v) {
+			if(v === 8) {
+				return true;
+			} else {
+				return false;
+			}
+		});
+		console.log(bBool);*/
+
+		// 数组去重函数
+		/*function norepeat(arr) {
+			var aUnique  = [];
+			for(var i = 0; i < arr.length; i++) {
+				// 去查看一下aUnique数组中是否有当前元素
+				var hasShow = false; // 假设没有出现过
+				for(var j = 0; j < aUnique.length;j++) {
+					if(aUnique[j] === arr[i]) {
+						hasShow = true;
+						break;
+					}
+				}
+
+				// 如果hasShow变量的值为false，则说明没有出现过
+				if(hasShow === false) {
+					aUnique.push(arr[i]);
+				}
+			}
+			return aUnique;
+		}
+
+		console.log(norepeat([1, 4, 7, 3, 4, 2, 1, 6, 6, 8, 9, 8]));*/
+
+		// 将一个数值插入到一个排好序的数组中
+		var arr = [1, 4, 9];
+		var iNum = 10;
+
+		// 如果即将被插入的数值大于最后一个元素，则直接插入末尾
+		/*if(iNum >= arr[arr.length - 1]) {
+			arr.push(iNum);
+		} else {
+			for(var i = 0; i < arr.length; i++) {
+				if(arr[i] > iNum){
+					arr.splice(i, 0, iNum);
+					break;
+				}
+			}
+		}
+		console.log(arr);*/
+
+		// 第三题
+		var aStudent = [
+			{
+				aStudentId: 1,
+				chinese: 98,
+				math: 99,
+				english: 88,
+			},
+			{
+				aStudentId: 2,
+				chinese: 88,
+				math: 88,
+				english: 88,
+			},
+			{
+				aStudentId: 3,
+				chinese: 94,
+				math: 94,
+				english: 84,
+			},
+			{
+				aStudentId: 4,
+				chinese: 96,
+				math: 92,
+				english: 92,
+			}
+		];
+
+		// 按照总成绩
+		aStudent.sort(function (a, b) {
+			if(a.chinese + a.math + a.english > b.chinese + b.math + b.english) {
+				return false;
+			} else {
+				return true;
+			}
+		});
+
+		// 按照语文
+		/*aStudent.sort(function (a, b) {
+			return a.chinese > b.chinese;
+		});
+		console.log(aStudent[aStudent.length - 1]);*/
+		// 按照数学
+		/*aStudent.sort(function (a, b) {
+			return a.math > b.math;
+		});
+		console.log(aStudent[aStudent.length - 1]);*/
+
+		// 按照英语
+		/*aStudent.sort(function (a, b) {
+			return a.english > b.english;
+		});
+		console.log(aStudent[aStudent.length - 1]);*/
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

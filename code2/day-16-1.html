@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>运动1</title>
+	<script type="text/javascript" src="common.js"></script>
+	<script type="text/javascript">
+		window.onload = function () {
+			var
+				oStart = $('start'),
+				oBox   = $('box'),
+				oTimer = null,
+				iSpeedX = 9,
+				iSpeedY = 16,
+				iWinW = document.documentElement.clientWidth,
+				iWinH = document.documentElement.clientHeight,
+				iTargetX = iWinW - oBox.offsetWidth,
+				iTargetY = iWinH - oBox.offsetHeight;
+			oStart.onclick = function () {
+				clearInterval(oTimer);
+				oTimer = setInterval(function () {
+					oBox.style.left = oBox.offsetLeft + iSpeedX + 'px';
+					oBox.style.top  = oBox.offsetTop + iSpeedY + 'px';
+
+					// 判断右侧边界
+					if(oBox.offsetLeft >= iTargetX) {
+						oBox.style.left = iTargetX + 'px';
+						// clearInterval(oTimer);
+						iSpeedX *= -1;
+					}
+					// 判断左侧边界
+					if(oBox.offsetLeft <= 0) {
+						oBox.style.left = 0;
+						iSpeedX *= -1;
+					}
+					// 判断下侧边界
+					if(oBox.offsetTop >= iTargetY) {
+						oBox.style.top = iTargetY + 'px';
+						// clearInterval(oTimer);
+						iSpeedY *= -1;
+					}
+					// 判断上侧边界
+					if(oBox.offsetTop <= 0) {
+						oBox.style.top = 0;
+						iSpeedY *= -1;
+					}
+				}, 50);
+			}
+		}
+	</script>
+</head>
+<body style="margin: 0;">
+	<button id="start">开始</button>
+	<div id="box" style="position: absolute;width: 100px;height: 100px; background: red;"></div>
+</body>
+</html>

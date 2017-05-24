@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ES5新增的方法</title>
+	<script type="text/javascript">
+		// bind
+		/*var name = '赵四';
+		var oPerson = {
+			name: '张三'
+		};
+		var sayName = function () {
+			console.log(this.name);
+		}.bind(oPerson);
+		sayName();*/
+
+		var aArray = [1, 4, 7, 9, 2];
+		// forEach方法
+		/*
+		aArray.forEach(function (v, k ,arr) {
+			arr[k] = v * 2;
+		});
+		console.log(aArray);*/
+
+		// map方法
+		/*var aMap = aArray.map(function (v, k ,arr) {
+			return v * 3;
+		});
+		console.log(aMap);*/
+
+		// filter方法
+		var aFilter = aArray.filter(function (v, k, arr) {
+			return v % 2 === 0;
+		});
+		console.log(aFilter);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

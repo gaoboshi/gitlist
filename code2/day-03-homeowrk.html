@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第三天作业</title>
+	<script type="text/javascript">
+		// 打印100-200之间所有能够被3或者7整除的数
+		/*for(var i = 100; i <= 200; i++) {
+			if(i % 3 === 0 || i % 7 === 0) {
+				document.write(i+'，');
+			}
+		}*/
+		// 计算100的阶乘 1* 2 * 3 * 4...*100
+		/*var iProduct = 1;
+		for(var i = 1; i<= 100; i++) {
+			// iProduct = iProduct * i;
+			iProduct *= i;
+		}
+		console.log(iProduct);*/
+
+		// 求100-999之间的水仙花数
+		// 水仙花数：153、370、371、407
+		/*var sRet = '水仙花数：';
+		for(var i = 100; i<= 999; i++) {
+			var
+				iThird  = parseInt(i / 100),
+				iSecond	= parseInt((i - iThird * 100 ) /10),
+				iFirst	= i - iThird * 100 - iSecond * 10;
+
+			if(i === iThird * iThird * iThird + iSecond * iSecond * iSecond + iFirst * iFirst * iFirst) {
+				sRet = sRet + i + '、';
+			}
+		}
+		console.log(sRet);*/
+
+		// 打印九九乘法表
+		/*
+			1 * 1 = 1
+			2 * 1 = 2 2 * 2 = 4
+			3 * 1 = 3 3 * 2 = 6 3 * 3 = 9
+		*/
+		/*for(var i = 1; i<= 9; i++) {
+			for(var j = 1; j <= i; j++) {
+				document.write(i + '*' + j + '=' + i * j + '&ensp;');
+			}
+			document.write('<br>');
+		}*/
+
+		// 求出100-200之间的所有质数
+		for(var i = 100; i <= 200; i++) {
+			// 假设当前i值是质数
+			var bBtn = true;
+
+			// 判断i值是否是真正的质数
+			for(var j = 2; j <= i / 2; j++) {
+				if(i % j === 0) {
+					bBtn = false;
+					break;
+				}
+			}
+
+			// 如果bBtn为true，那么说明当前i值为质数
+			if(bBtn) {
+				document.write(i + '，');
+			}
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

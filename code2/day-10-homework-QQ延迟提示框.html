@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>QQ延迟提示框</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#left {
+			width: 200px;
+			height: 200px;
+			background: red;
+		}
+		#right {
+			position: absolute;
+			top: 0;
+			left: 220px;
+			display: none;
+			width: 200px;
+			height: 200px;
+			background: blue;
+		}
+	</style>
+	<script type="text/javascript" src="common.js"></script>
+	<script type="text/javascript">
+		window.onload = function () {
+			var oLeft  = $('left'),
+			 	oRight = $('right'),
+			 	oTimer = null;
+
+			 oLeft.onmouseover = function () {
+			 	clearTimeout(oTimer);
+			 	oRight.style.display = 'block';
+			 }
+			 oLeft.onmouseout = function () {
+			 	oTimer = setTimeout(function () {
+			 		oRight.style.display = 'none';
+			 	}, 100);
+			 }
+			 oRight.onmouseover = function () {
+			 	clearTimeout(oTimer);
+			 }
+			 oRight.onmouseout = function () {
+			 	oTimer = setTimeout(function () {
+			 		oRight.style.display = 'none';
+			 	}, 100);
+			 }
+		}
+	</script>
+</head>
+<body>
+	<div id="left"></div>
+	<div id="right"></div>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ES6</title>
+	<script type="text/javascript">
+		// 'use strict';
+		// console.log(0b111);
+		// console.log(0o111);
+		// console.log(0o111);
+
+		// console.log(Number.isNaN(NaN));
+		// console.log(Number.parseInt(13.9));
+		// console.log(Number.parseFloat('13.9px'));
+
+		// console.log(Number.isNaN('NaN'));
+
+		// Math对象扩展
+		// console.log(Math.trunc(4.9));
+		// console.log(Math.sign(0));
+		// console.log(Math.cbrt(8));
+		// console.log(Math.hypot(3, 4, 6));
+
+		// Array扩展
+		var obj = {
+			0: '张三',
+			1: '李四',
+			2: '王五',
+			length: 3
+		};
+		// console.log(Array.isArray(obj));
+		// var oArr = Array.from(obj);
+		// console.log(oArr);
+		/*window.onload = function () {
+			var aLi = document.getElementsByTagName('li');
+			aLi = Array.from(aLi);
+
+			// console.log(Array.isArray(aLi));
+			aLi.forEach(function (v) {
+				console.log(v);
+			});
+		}*/
+
+		// var aArr = Array.of(3);
+		// var aArr = new Array(3);
+
+		var aArr = Array.of(4, 7, 9, 10, 12, 3, 14);
+		// aArr.copyWithin(2,0, 2);
+		/*var iRet = aArr.find(function (v, k, arr) {
+			return v > 20;
+		});*/
+		/*var iRet = aArr.findIndex(function (v, k, arr) {
+			return v > 20;
+		});*/
+
+		// 函数扩展
+		/*function person(name = '匿名', age = '你猜') {
+			// name = name || '匿名';
+			// age  = age  || '你猜';
+			// let name;
+			console.log(name, age);
+		}*/
+
+		/*function animal(person, ...animals) {
+			// console.log(Array.isArray(animals));
+		}*/
+		// animal('大象', '狮子', '老虎', '鬣狗', '长颈鹿');
+
+		// 扩展运算符
+		// console.log(...[1, 4, 8]);
+		/*var a1 = [1, 4];
+		var a2 = [6, 8];
+
+		console.log([1, 4, ...a2]);*/
+
+		// let [a, ...b] = [1, 4, 7, 9, 20];
+		// console.log([...'hello world']);
+
+		/*function a(b, c=7) {
+			'use strict';
+			console.log(b, c);
+		}
+		a(1);*/
+
+		// 箭头函数
+		/*var add = (x, y) =>  x + y;
+		console.log(add(1, 7));*/
+
+
+		var name = '李四';
+		var age = 30;
+		var oPerson = {
+			name: '张三',
+			age: 27,
+			sayName: function () {
+				/*function say() {
+					console.log(this);
+					console.log(this.name + ',' + this.age);
+				}*/
+				/*var say = () => {
+					console.log(this.name + ',' + this.age);
+				};*/
+				say();
+			}
+		};
+
+		// oPerson.sayName();
+
+
+		// 对象扩展
+		/*var animal = '大象';
+		var oA = {
+			animal,
+			drinkWater() {
+				console.log('我会喝水');
+			}
+		};*/
+		/*var o1 = {a:1};
+		var o2 = {b:2};
+		var o3 = {c:3};
+
+		Object.assign(o1, o2, o3);*/
+
+		// set数据结构
+		var arr = [1, 4, 7, 3, 2, 4, 1, 7];
+		var oSet = new Set();
+
+		arr.map((v) => oSet.add(v));
+
+		// console.log([...oSet]);
+		// console.log(oSet.constructor);
+		// console.log(oSet.size);
+		// oSet.delete(7);
+		// console.log(oSet.has(7));
+		// oSet.clear();
+		// console.log(oSet.keys());
+		// console.log(oSet.values());
+		// console.log(oSet.entries());
+
+
+		// Map数据结构
+		var oMap = new Map();
+		var o = {};
+		oMap.set('name', '张三');
+		oMap.set(o, '哈哈哈');
+
+		// console.log(oMap.get(o));
+		// console.log(oMap.size);
+		// oMap.delete(o);
+		oMap.clear();
+		console.log(oMap.has(o));
+
+	</script>
+</head>
+<body>
+	<ul id="list">
+		<li>这是第1个LI</li>
+		<li>这是第2个LI</li>
+		<li>这是第3个LI</li>
+		<li>这是第4个LI</li>
+		<li>这是第5个LI</li>
+		<li>这是第6个LI</li>
+	</ul>
+</body>
+</html>

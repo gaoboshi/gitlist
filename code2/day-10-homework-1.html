@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>进度条</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#outer {
+			margin: 30px auto;
+			padding: 10px;
+			width: 400px;
+			background: #ccc;
+		}
+		#inner {
+			width: 0;
+			line-height: 40px;
+			text-align: center;
+			background: #eee;
+			overflow: hidden;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function () {
+			var oInner = document.getElementById('inner');
+
+			var oTimer = setInterval(function () {
+				// 更改inner的宽度
+				oInner.style.width = oInner.offsetWidth + 13 + 'px';
+				// 更改显示的百分比
+				oInner.innerHTML = Math.round(oInner.offsetWidth / 400 * 1000)/10 + '%';
+
+				//终点
+				if(oInner.offsetWidth >= 400) {
+					clearInterval(oTimer);
+					oInner.style.width = '400px';
+					oInner.innerHTML = '100%';
+				}
+			}, 100);
+		}
+	</script>
+</head>
+<body>
+	<div id="outer">
+		<div id="inner">0%</div>
+	</div>
+</body>
+</html>

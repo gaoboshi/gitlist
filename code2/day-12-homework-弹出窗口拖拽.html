@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹出窗口拖拽</title>
+	<style>
+		#box {
+			position: absolute;
+			top: 30px;
+			left: 50%;
+			margin-left: -50px;
+			width: 100px;
+			height: 100px;
+			background: #ccc;
+			display: none;
+		}
+	</style>
+	<script type="text/javascript" src="common.js"></script>
+	<script type="text/javascript">
+		window.onload = function () {
+			var
+				oBtn 	= $('btn'),
+				oReplay = $('replay'),
+				oBox 	= $('box'),
+				aPos 	= [];
+
+			// 弹出DIV
+			oBtn.onclick = function () {
+				oBox.style.display = 'block';
+			}
+
+			// 拖拽DIV
+			oBox.onmousedown = function (ev) {
+				var
+					ev = ev || window.event,
+					iX = ev.clientX - oBox.offsetLeft,
+					iY = ev.clientY - oBox.offsetTop;
+				if(oBox.setCapture) {
+					oBox.setCapture();
+				}
+				document.onmousemove = function (ev) {
+					var
+						ev = ev || window.event,
+						iL = ev.clientX - iX,
+						iT = ev.clientY - iY;
+
+					// 赋值
+					oBox.style.left = iL + 50 + 'px';
+					oBox.style.top  = iT + 'px';
+
+					// 记录当前位置
+					var oPos = {
+						left: iL + 50,
+						top : iT
+					};
+					aPos.push(oPos);
+				}
+				document.onmouseup = function () {
+					document.onmouseup = document.onmousemove = null;
+
+					if(oBox.releaseCapture) {
+						oBox.releaseCapture();
+					}
+				}
+				// 阻止浏览器的默认行为
+				return false;
+			}
+			// 拖拽回放
+			oReplay.onclick = function () {
+				var i = 0;
+				var oTimer = setInterval(function () {
+					oBox.style.left = aPos[i].left + 'px';
+					oBox.style.top  = aPos[i].top  + 'px';
+					i++;
+
+					if(i>=aPos.length) {
+						clearInterval(oTimer);
+					}
+				}, 40);
+			}
+		}
+	</script>
+</head>
+<body>
+	<button id="btn">弹出</button>
+	<button id="replay">回放</button>
+	<div id="box"></div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>课堂案例</title>
+	<script type="text/javascript">
+		window.onload = function () {
+			var
+				oA   = $('a'),
+				oB   = $('b'),
+				oBtn = $('btn');
+
+			oBtn.onclick = function () {
+				var
+					iA = Number(oA.value),
+					iB = Number(oB.value);
+
+				console.log(sum(iA, iB));
+				console.log(minus(iA, iB));
+				console.log(product(iA, iB));
+				console.log(divide(iA, iB));
+
+
+
+				// 单一职责原则
+
+				// 定义求和函数
+				function sum(x, y) {
+					return x + y;
+				}
+
+				// 定义减法函数
+				function minus(x, y) {
+					return x - y;
+				}
+
+				// 定义乘法函数
+				function product(x, y) {
+					return x * y;
+				}
+
+				// 定义除法函数
+				function divide(x, y) {
+					return x / y;
+				}
+			};
+			// 通过ID获取节点对象的函数
+			function $(id) {
+				return document.getElementById(id);
+			}
+		};
+	</script>
+</head>
+<body>
+	<form action="javascript:;">
+		<input type="text" id="a">
+		<input type="text" id="b">
+		<input type="submit" value="计算" id="btn">
+	</form>
+</body>
+</html>

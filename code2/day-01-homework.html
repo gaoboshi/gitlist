@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第一天的作业</title>
+	<script type="text/javascript">
+		// var k = 0;
+		// 6
+		// 第一步 k = 1, 0 + ++k + k + k++
+		// 第二步 k = 2, 0 + 2 + k + k++
+		// 第三步 k = 2, 0 + 2 + 2 + k++
+		// 第四步 k = 3, 0 + 2 + 2 + 2 // 6
+		// alert(k++ + ++k + k + k++);
+
+		// 计算加减乘除
+
+		window.onload = function () {
+			var
+				oA = document.getElementById('a'),
+				oB = document.getElementById('b'),
+				oCalculate = document.getElementById('calculate');
+
+			// 添加点击事件
+			oCalculate.onclick = function () {
+				var
+					sAValue = Number(oA.value),
+					sBValue = Number(oB.value);
+
+				// 对输入框内的内容进行加减乘除运算
+				var
+					iSum 	= sAValue + sBValue,
+					iReduce = sAValue - sBValue,
+					iMulti  = sAValue * sBValue,
+					iDivide = Math.round(sAValue / sBValue * 100) / 100;
+
+				// 将结果输入出到页面上
+				document.write('结果是和为'+ iSum + '，差为' + iReduce +'，积为' + iMulti + '，商为' + iDivide);
+			}
+		};
+
+	</script>
+</head>
+<body>
+	<input type="text" id="a">
+	<input type="text" id="b">
+	<button id="calculate">计算加减乘除</button>
+</body>
+</html>

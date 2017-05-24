@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数课堂案例</title>
+	<script type="text/javascript">
+		window.onload = function () {
+			var
+				oA = document.getElementById('a'),
+				oB = document.getElementById('b'),
+				oC = document.getElementById('c'),
+				oBtn = document.getElementById('btn');
+
+			// 给按钮添加click事件
+			oBtn.onclick = function () {
+				sortNum(Number(oA.value), Number(oB.value), Number(oC.value));
+				// 声明排序功能的函数
+				function sortNum (a, b, c) {
+					var sStr = '';
+					if(a < b) {
+						if(a < c) {
+							sStr += a;
+							if(c < b) {
+								sStr = sStr + c + b;
+							} else {
+								sStr = sStr + b + c;
+							}
+						} else {
+							sStr = sStr + c + a + b;
+						}
+					} else {
+						console.log(1);
+						if(b < c) {
+							sStr += b;
+							if(c < a) {
+								sStr = sStr + c + a;
+							} else {
+								sStr = sStr + a + c;
+							}
+						} else {
+							sStr = sStr + c + b + a;
+						}
+					}
+					console.log(sStr);
+				};
+			};
+		}
+	</script>
+</head>
+<body>
+	<form action="javascript:;">
+		<input type="text" id="a">
+		<input type="text" id="b">
+		<input type="text" id="c">
+		<button id="btn">排序</button>
+	</form>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>顶部悬浮</title>
+	<script type="text/javascript">
+		window.onload = function () {
+			var oBox = document.getElementById('box');
+
+			window.onscroll = function () {
+				var iScrollT = document.documentElement.scrollTop || document.body.scrollTop;
+
+				oBox.style.top = iScrollT + 'px';
+			}
+		}
+	</script>
+</head>
+<body style="margin:0; height: 2000px;">
+	<div id="box" style="width: 100%; height: 100px; background: #ccc; position: absolute; top: 0;"></div>
+</body>
+</html>

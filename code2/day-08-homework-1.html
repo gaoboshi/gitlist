@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>随机验证码</title>
+	<script type="text/javascript">
+		window.onload = function () {
+			var
+				oVerify = document.getElementById('verify'),
+				sSeeds  = '1234567890abcdefghigklmnopqGDSWRYNGHKNKOO';
+
+			oVerify.onclick = function () {
+				var sStr = '';
+				for(var i = 0; i < 4; i++) {
+					// 随机获取字符下标
+					var iKey = Math.floor(Math.random() * sSeeds.length);
+
+					// 获取下标对应的内容
+					var sCode = sSeeds.charAt(iKey);
+
+					// 拼接字符串
+					sStr += sCode;
+				}
+				oVerify.innerHTML = sStr;
+			}
+		}
+	</script>
+</head>
+<body>
+	验证码：<input type="text"><span id="verify">CFGD</span>
+</body>
+</html>

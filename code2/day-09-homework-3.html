@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>操作表格</title>
+	<script type="text/javascript">
+		window.onload = function () {
+			var
+				oBtn = $('add'),
+				oDelete = $('delete'),
+				oTable = $('table');
+
+			oBtn.onclick = function () {
+				var oTbody = oTable.tBodies[0];
+
+				// 创建行
+				var oTr = oTbody.insertRow(1);
+
+				// 创建TD
+				var oTd = oTr.insertCell(0);
+				oTd.innerHTML = 3;
+				oTd = oTr.insertCell(1);
+				
+				oTd.innerHTML = '马虎';
+				oTd = oTr.insertCell(2);
+				oTd.innerHTML = 28;
+			}
+			oDelete.onclick = function() {
+				var oTbody = oTable.tBodies[0];
+				var iFirst = oTbody.rows[1];
+
+				oTbody.removeChild(iFirst);
+			}
+		}
+
+		function $(id) {
+			return document.getElementById(id);
+		}
+	</script>
+</head>
+<body>
+	<button id="add">添加</button>
+	<button id="delete">删除</button>
+	<table border="1" id="table">
+		<tr>
+			<td>ID</td>
+			<td>姓名</td>
+			<td>年龄</td>
+		</tr>
+	</table>
+</body>
+</html>

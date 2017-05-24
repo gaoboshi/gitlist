@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>运动2</title>
+	<script type="text/javascript" src="common.js"></script>
+	<script type="text/javascript">
+		window.onload = function () {
+			var
+				oStart = $('start'),
+				oRed = $('red'),
+				oBlue = $('blue'),
+				oGreen = $('green'),
+				oTimer1 = null,
+				oTimer2 = null,
+				oTimer3 = null,
+				iSpeedW = 8,
+				iSpeedH = 10;
+
+			oStart.onclick = function () {
+				// 单个物体多个属性同时运动
+				/*clearInterval(oTimer);
+				oTimer = setInterval(function () {
+					oBox.style.width = oBox.offsetWidth + iSpeedW + 'px';
+					oBox.style.height = oBox.offsetHeight + iSpeedH + 'px';
+
+					if(oBox.offsetWidth >= 400) {
+						oBox.style.width = '400px';
+					}
+					if(oBox.offsetHeight >= 600) {
+						oBox.style.height = '600px';
+					}
+					if(oBox.offsetWidth >= 400 && oBox.offsetHeight >= 600) {
+						clearInterval(oTimer);
+					}
+				},50);*/
+
+				// 多个物体同时运动
+				/*clearInterval(oTimer1);
+				oTimer1 = setInterval(function () {
+					oBlue.style.left  = oBlue.offsetLeft  + 13 + 'px';
+
+					if(oBlue.offsetLeft >= 800) {
+						oBlue.style.left = '800px';
+						clearInterval(oTimer1);
+					}
+				}, 50);
+
+				clearInterval(oTimer2);
+				oTimer2 = setInterval(function () {
+					oRed.style.left   = oRed.offsetLeft + 10 + 'px';
+
+					if(oRed.offsetLeft >= 800) {
+						oRed.style.left = '800px';
+						clearInterval(oTimer2);
+					}
+				}, 50);
+
+				clearInterval(oTimer3);
+				oTimer3 = setInterval(function () {
+					oGreen.style.left = oGreen.offsetLeft + 7 + 'px';
+
+					if(oGreen.offsetLeft >= 800) {
+						oGreen.style.left = '800px';
+						clearInterval(oTimer3);
+					}
+				}, 50);*/
+
+				/*move(oRed, 'left', 10, 800);
+				move(oBlue, 'width', 13, 400);
+				move(oGreen, 'margin', 8, 50);*/
+
+				move(oRed, {left:400, top:200, width:350}, 10);
+				move(oGreen, {left:300, top:400, width:420}, 20);
+			}
+
+
+			// {attr:target, attr:target}
+			function move(obj, oTarget, iSpeed) {
+				clearInterval(obj.oTimer);
+				obj.oTimer = setInterval(function () {
+					var bBtn = true; // 假设所有的属性都已经运动完毕
+					for(var sAttr in oTarget) {
+						var iCur = parseInt(getStyle(obj, sAttr));
+						obj.style[sAttr] = iCur + iSpeed + 'px';
+
+						if(iCur >= oTarget[sAttr]) {
+							obj.style[sAttr] = oTarget[sAttr] + 'px';
+						} else {
+							bBtn = false;
+						}
+					}
+
+					// 如果bBtn为true的话，则说明所有的属性都已经运动完毕
+					if(bBtn){
+						clearInterval(obj.oTimer);
+					}
+					
+				}, 50);
+			}
+
+			// 获取某个对象某个属性的值
+			function getStyle(obj, sAttr) {
+				if(obj.currentStyle) {
+					return obj.currentStyle[sAttr];
+				} else {
+					return getComputedStyle(obj, false)[sAttr];
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<button id="start">开始</button>
+	<div id="red" style="position: absolute;width: 100px;height: 100px; background: red;top: 100px;"></div>
+	<div id="blue" style="position: absolute;width: 100px;height: 100px; background: blue; top: 210px;"></div>
+	<div id="green" style="position: absolute;width: 100px;height: 100px; background: green; top: 320px;"></div>
+</body>
+</html>

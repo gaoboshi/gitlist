@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ES6</title>
+	<script type="text/javascript">
+		// let命令
+		/*{
+			let a = 1;
+		}*/
+		// 不存在变量提升
+		/*alert(a);
+		let a = 1;*/
+
+		/*// 暂时性死区
+		let a = 1;
+		{
+			let a = 3;
+			a = 2;
+		}*/
+
+		// 不允许重复声明
+		/*let a = 1;
+		let a = 2;*/
+
+		// 块级作用域
+		/*let n = 10;
+
+		if(true) {
+			let n = 20;
+		}*/
+
+		// const命令
+		// const PI = 3.14;
+		// PI = 2.7;
+		/*const oPerson = {
+			name: '张三',
+			age: 27
+		};
+		oPerson = {
+			name: '李四',
+			age:27
+		};*/
+/*
+		let a = 1;
+		console.log(window.a);*/
+
+		// 变量解构赋值
+		/*var
+			a = 1,
+			b = 2,
+			c = 3;*/
+
+		// var [a, b, c] = [1, 2, 3];
+
+		//const [,,, d, e=999] = [1, [2], [[3]], 4, 0];
+
+		//e = 6;
+
+		//let {name: username, age: iAge} = {age: 28, name: '张三'};
+
+		/*let name;
+		({name} = {name: '张三'});*/
+		// let {name="匿名"} ={};
+
+		/*function person({name = '你猜', age="不告诉你"} = {}) {
+			console.log('我的名字叫'+name + '，今年'+age);
+		}
+
+		person();*/
+		/*let x = 1, y = 2;
+
+		[x, y] = [y, x];
+		console.log(x, y);*/
+
+		/*function person() {
+			return {
+				name: '张三',
+				age: 18
+			};
+		}
+		var {name, age} = person();
+
+		console.log(name, age);*/
+
+		// 字符串遍历
+		// var sStr = 'asdffgfdgfdhgooddfhfdgfd';
+		/*for(var i of sStr) {
+			console.log(i);
+		}*/
+		// console.log(sStr.includes('good', 10));
+		// console.log(sStr.startsWith('good', 10));
+		// console.log(sStr.endsWith('dgf', 10));
+		/*var sStr = 'x';
+		console.log(sStr.repeat(3));*/
+
+		// 模版字符串
+		var a = 4;
+		var sStr = `<li>这是一个LI${a}</li>
+					<li>这是一个LI</li>
+					<li>这是一个LI</li>
+					<li>这是一个LI</li>
+					<li>这是一个LI</li>
+					<li>这是一个LI</li>
+					<li>这是一个LI</li>`;
+
+		console.log(sStr);
+
+		window.onload = function () {
+			var aLi = document.getElementsByTagName('li');
+
+			/*for(var i = 0; i < aLi.length; i++) {
+				aLi[i].index = i;
+				aLi[i].onclick = function () {
+					console.log(this.index);
+				}
+			}*/
+			for(let i = 0; i < aLi.length; i++) {
+				aLi[i].onclick = function () {
+					console.log(i);
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul id="list">
+		<li>这是第1个LI</li>
+		<li>这是第2个LI</li>
+		<li>这是第3个LI</li>
+		<li>这是第4个LI</li>
+		<li>这是第5个LI</li>
+		<li>这是第6个LI</li>
+	</ul>
+</body>
+</html>

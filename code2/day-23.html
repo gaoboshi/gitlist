@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>回调函数的嵌套</title>
+	<script type="text/javascript" src="common.js"></script>
+	<script type="text/javascript">
+		window.onload = function () {
+			var
+				oBox = $('box');
+
+			bufferMove(oBox, {width:400},function () {
+				// ...
+				// ...
+				// ...
+				if() {
+					bufferMove(oBox, {height:400}, function () {
+						if() {
+							// ...
+							// ...
+							// ...
+							bufferMove(oBox, {opacity: 20});
+						}
+					});
+				}
+				
+			});
+
+		}
+	</script>
+</head>
+<body>
+	<div id="box" style="width: 100px;height: 100px;background: red;"></div>
+</body>
+</html>

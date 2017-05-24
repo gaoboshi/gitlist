@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简易年历</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			font-family: 'Microsoft Yahei';
+		}
+		#table {
+			margin: 30px auto;
+			text-align: center;
+			border-collapse: collapse;
+		}
+		#table th{
+			padding: 10px 20px;
+			font-size: 36px;
+		}
+		#table td{
+			padding: 10px 20px;
+			font-size: 30px;
+			color: #666;
+		}
+		#table .active {
+			color: #fff;
+			background: orange;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function () {
+			var oTable = document.getElementById('table');
+			var oTBody = oTable.tBodies[0];
+			var iNum = 1;
+
+			// 获取当前日期
+			var oDate = new Date();
+			var iDate = oDate.getDate();
+
+			// 循环生成日历
+			for(var i = 1; i<=5; i++) {
+				var oRow = oTBody.insertRow(i);
+				for(var j = 0; j < 7; j++) {
+					var oCell = oRow.insertCell(j);
+
+					// 判断当前天
+					if(iNum === iDate) {
+						oCell.className = 'active';
+					}
+
+					//判断日期显示范围
+					if(iNum <= 31) {
+						oCell.innerHTML = iNum;
+						iNum++;
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<table id="table" border="1">
+		<tr>
+			<th>日</th>
+			<th>一</th>
+			<th>二</th>
+			<th>三</th>
+			<th>四</th>
+			<th>五</th>
+			<th>六</th>
+		</tr>
+	</table>
+</body>
+</html>

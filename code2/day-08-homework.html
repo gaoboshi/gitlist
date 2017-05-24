@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>倒计时</title>
+	<script type="text/javascript">
+		window.onload = function () {
+			var
+				oBox =document.getElementById('box'),
+				iNum = 10;
+			var oTimer = setInterval(function () {
+				iNum--;
+				oBox.innerHTML = iNum;
+
+				// 如果iNum值为0，则清除定时器
+				if(iNum === 0) {
+					clearInterval(oTimer);
+				}
+			},1000);
+		}
+	</script>
+	<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	#box {
+		margin: 30px auto;
+		width: 100px;
+		line-height: 100px;
+		color: #fff;
+		text-align: center;
+		font-size: 40px;
+		background: #669900;
+	}
+	</style>
+</head>
+<body>
+	<div id="box">10</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>苹果菜单</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#box {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			text-align: center;
+		}
+		#box img{
+			width: 64px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function () {
+			var
+				oBox = document.getElementById('box'),
+				aImg = oBox.children,
+				iPoint = 200;
+			document.onmousemove = function (ev) {
+				var
+					ev = ev || window.event,
+					iX = ev.clientX,
+					iY = ev.clientY;
+				
+				for(var i = 0; i < aImg.length; i++) {
+					var
+						iL = aImg[i].offsetWidth / 2 + aImg[i].offsetLeft,
+						iT = aImg[i].offsetHeight / 2 + oBox.offsetTop;
+
+					// 计算直角边
+					var
+						iHorizental = iL - iX,
+						iVertical   = iT - iY;
+						iDistance   = Math.sqrt(Math.pow(iHorizental, 2) + Math.pow(iVertical, 2));
+
+					if(iDistance <= iPoint) {
+						aImg[i].style.width = (64 - iDistance / iPoint * 64) + 64 + 'px';
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<img src="images/1.png">
+		<img src="images/2.png">
+		<img src="images/3.png">
+		<img src="images/4.png">
+		<img src="images/5.png">
+		<img src="images/6.png">
+	</div>
+</body>
+</html>

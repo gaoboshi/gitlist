@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片切换</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		ul {
+			list-style: none;
+		}
+		img {
+			vertical-align: bottom;
+		}
+		#box{
+			position: relative;
+			margin: 30px auto;
+			width: 760px;
+			background: #000;
+			overflow: hidden;
+		}
+		#list {
+			width: 1008px;
+		}
+		#list li {
+			float: left;
+			padding: 0 2px;
+		}
+		#list img{
+			margin-top: 140px;
+			width: 120px;
+			height: 120px;
+		}
+		#list .active{
+			margin-top: 0;
+			width: 260px;
+			height: 260px;
+		}
+		#direction-btn {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			height: 60px;
+			background: rgba(0, 0, 0, .4);
+		}
+		#direction-btn a{
+			font-size: 36px;
+			color: #fff;
+			text-decoration: none;
+		}
+		#right-btn{
+			float: right;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function () {
+			var
+				aImg  = Array.from(document.getElementsByTagName('img')),
+				oLBtn = document.getElementById('left-btn'),
+				oRBtn = document.getElementById('right-btn'),
+				aSrc  = [];
+
+			//将页面上所有的图片地址放到数组中存储
+			aImg.forEach((v) => aSrc.push(v.src));
+
+			oLBtn.onclick = function () {
+				aSrc.push(aSrc.shift());
+				aImg.forEach((v, k) => v.src = aSrc[k]);
+			}
+
+			oRBtn.onclick = function () {
+				aSrc.unshift(aSrc.pop());
+				aImg.forEach((v, k) => v.src = aSrc[k]);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<ul id="list">
+			<li><img src="images/1.jpg"></li>
+			<li><img src="images/2.jpg"></li>
+			<li><img src="images/3.jpg" class="active"></li>
+			<li><img src="images/4.jpg"></li>
+			<li><img src="images/5.jpg"></li>
+			<li><img src="images/6.jpg"></li>
+			<li><img src="images/7.jpg"></li>
+		</ul>
+		<div id="direction-btn">
+			<a href="javascript:;" id="left-btn"><</a>
+			<a href="javascript:;" id="right-btn">></a>
+		</div>
+	</div>
+</body>
+</html>

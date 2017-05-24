@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery</title>
+	<script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.8.3/jquery.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			// 向元素内部追加内容
+			// $('#box').append('<b>world</b>');
+			// $('#box').prepend('<b>world</b>');
+
+			// 
+			// $('#box').after('<b>world</b>');
+			// $('#box').before('<b>world</b>');
+
+			// $('#box').wrap('<div></div>');
+			// $('#box').unwrap();
+
+			// $('.single').wrap('<div></div>');
+			// $('.single').wrapAll('<div></div>');
+			// $('.single').wrapInner('<b></b>');
+
+			// 替换
+			// $('#box').replaceWith('hello world!');
+			// $('#box').replaceAll('.single');
+			// $('<div class="box"></div>').replaceAll('.single');
+
+			// 删除操作
+			// $('#list').empty();
+			$('#list').click(function () {
+				console.log('ul 单击事件！');
+			});
+			//$('body').prepend($('#list').remove());
+			//$('body').prepend($('#list').detach());
+
+			// $('body').append($('#list').clone(true));
+		});
+	</script>
+</head>
+<body>
+	<div class="parent">
+		<div id="box">hello</div>
+	</div>
+
+	<p class="single">hello world!</p>
+	<p class="single">hello world!</p>
+	<p class="single">hello world!</p>
+	<p class="single">hello world!</p>
+
+	<ul id="list">
+		<li>这是第1个LI</li>
+		<li>这是第2个LI</li>
+		<li>这是第3个LI</li>
+		<li>这是第4个LI</li>
+		<li>这是第5个LI</li>
+		<li>这是第6个LI</li>
+	</ul>
+</body>
+</html>

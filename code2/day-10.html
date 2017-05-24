@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM节点</title>
+	<script type="text/javascript">
+		window.onload = function () {
+			// parentNode属性
+			/*var oSon = document.getElementById('son');
+			var oParent = oSon.parentNode;*/
+
+			// childNodes属性
+
+			var oBox = $('box');
+			// var aBoxLi = oBox.childNodes;
+			// var aBoxLi = oBox.children;
+			// var oFirstChild = oBox.firstChild;
+			// var oFirstChild = oBox.firstElementChild;
+			// var oLastChild = oBox.lastChild;
+			// var oLastChild = oBox.lastElementChild;
+
+			// var oNextSibling = oFirstChild.nextSibling;
+			// var oNextSibling = oFirstChild.nextElementSibling;
+
+			// var oPrevSibling = oLastChild.previousSibling;
+			// var oPrevSibling = oLastChild.previousElementSibling;
+
+			// 其他节点属性
+			//console.log(oBox.ownerDocument === document);
+			// console.log(oBox.attributes);
+			// console.log(oBox.tagName);
+			// console.log(oBox.id);
+			// console.log(oBox.className);
+
+			// 节点信息属性
+			// 标签节点
+			// console.log(oBox.nodeName);
+			// console.log(oBox.nodeType);
+			// console.log(oBox.nodeValue);
+
+			// 属性节点
+			/*var oAttrId = document.createAttribute('id');
+			oAttrId.value = 'list';
+			console.log(oAttrId);
+			console.log(oAttrId.nodeName);
+			console.log(oAttrId.nodeValue);
+			console.log(oAttrId.nodeType);*/
+
+			// 文本节点
+			/*var oText = document.createTextNode('这是一段话');
+
+			console.log(oText.nodeName);
+			console.log(oText.nodeValue);
+			console.log(oText.nodeType);*/
+
+			// 注释节点
+			/*var oComment = oBox.firstChild.nextSibling;
+
+			console.log(oComment.nodeName);
+			console.log(oComment.nodeValue);
+			console.log(oComment.nodeType);*/
+
+			// 文档节点
+			console.log(document.nodeName);
+			console.log(document.nodeValue);
+			console.log(document.nodeType);
+
+
+			function $(id) {
+				return document.getElementById(id);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="parent">
+		<div id="son"></div>
+	</div>
+	<div id="box" class="aaa" age="28" title="这是title">
+		<!--第一个注释节点-->
+		<li>这是第1个LI</li>
+		<!--第二个注释节点-->
+		<li>这是第2个LI</li>
+		<li>这是第3个LI</li>
+		<li>这是第4个LI</li>
+		<li>这是第5个LI</li>
+		<li>这是第6个LI</li>
+	</div>
+</body>
+</html>

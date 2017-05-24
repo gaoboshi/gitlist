@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>评分特效</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			background: #ccc;
+		}
+		#box {
+			margin: 50px auto;
+			width: 90px;
+		}
+		#box span {
+			display: inline-block;
+			width: 18px;
+			height: 16px;
+			background: url(star.png) -18px 0 no-repeat;
+			overflow: hidden;
+		}
+		#box .yellow{
+			background-position: 0 0;
+		}
+	</style>
+	<script type="text/javascript" src="../common.js"></script>
+	<script type="text/javascript">
+		window.onload = function () {
+			var oBox = $('box'),
+				aSpan = Array.from(oBox.children);
+
+			aSpan.forEach(function (v, k) {
+				v.index = k;
+				v.onmouseenter = function () {
+					aSpan.forEach(function (n, m) {
+						if(m <= v.index) {
+							n.className = 'yellow';
+						} else {
+							n.className = '';
+						}
+					});
+				};
+			});
+
+			oBox.onmouseleave = function () {
+				aSpan.forEach(function (v) {
+					v.className = '';
+				});
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box"><span></span><span></span><span></span><span></span><span></span></div>
+</body>
+</html>

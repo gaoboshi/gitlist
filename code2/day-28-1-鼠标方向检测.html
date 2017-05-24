@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标方向检测</title>
+	<script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.8.3/jquery.js"></script>
+	<script type="text/javascript">
+	$(function () {
+		$("#box").bind("mouseenter mouseleave",function(e) {
+			var w = $(this).width();
+			var h = $(this).height();
+			var x = (e.pageX - this.offsetLeft - (w / 2)) * (w > h ? (h / w) : 1);
+			var y = (e.pageY - this.offsetTop - (h / 2)) * (h > w ? (w / h) : 1);
+			var direction = Math.round((((Math.atan2(y, x) * (180 / Math.PI)) + 180) / 90) + 3) % 4; //direction的值为“0,1,2,3”分别对应着“上，右，下，左”
+			var eventType = e.type;
+			var dirName = new Array('上方','右侧','下方','左侧');
+			if(e.type == 'mouseenter'){
+				$("#result").html(dirName[direction]+'进入');
+			}else{
+				$('#result').html(dirName[direction]+'离开');
+			}
+		});
+	});
+	</script>
+</head>
+<body>
+	<div id="box" style="width: 400px; height: 100px; background: #ccc;"></div>
+	<div id="result"></div>
+</body>
+</html>

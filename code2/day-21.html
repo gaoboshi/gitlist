@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>FORM表单</title>
+	<script type="text/javascript">
+		document.cookie = 'name='+encodeURIComponent('张三');
+	</script>
+</head>
+<body>
+	<form action="day-21.php" method="get">
+	<div>帐号：<input type="text" name="account"></div>
+	<div>密码：<input type="password" name="password"></div>
+	<input type="submit" value="登录">
+	</form>
+</body>
+</html>

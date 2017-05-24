@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件委托</title>
+	<script type="text/javascript" src="common.js"></script>
+	<script type="text/javascript">
+		window.onload = function () {
+			var
+				oTable = $('table'),
+				oAdd   = $('add'),
+				oTBody = oTable.tBodies[0],
+				aA 	   = oTable.getElementsByTagName('a');
+
+			// 循环给每个A添加删除功能
+			/*for(var i = 0; i < aA.length; i++) {
+				aA[i].onclick = function () {
+					oTBody.removeChild(this.parentNode.parentNode);
+				}
+			}*/
+
+			// 将删除功能委托给table
+			oTable.onclick = function (ev) {
+				var ev = ev || window.event;
+				var oTarget = ev.srcElement || ev.target;
+				if(oTarget.nodeName === 'A') {
+					oTBody.removeChild(oTarget.parentNode.parentNode);
+				}
+			};
+
+
+			// 添加 添加功能
+			oAdd.onclick = function () {
+				var oNewTr = oTBody.insertRow(oTBody.rows.length);
+				var oTd = oNewTr.insertCell(0);
+				oTd.innerHTML = 4;
+
+				var oTd = oNewTr.insertCell(1);
+				oTd.innerHTML = '小张';
+
+				var oTd = oNewTr.insertCell(2);
+				oTd.innerHTML = '<a href="javascript:;">删除</a>';
+			}
+		}
+	</script>
+</head>
+<body>
+	<button id="add">添加</button>
+	<table id="table" border="1">
+		<tr>
+			<td>ID</td>
+			<td>姓名</td>
+			<td>操作</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>马小虎</td>
+			<td><a href="javascript:;">删除</a></td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>小马虎</td>
+			<td><a href="javascript:;">删除</a></td>
+		</tr>
+	</table>
+</body>
+</html>
